@@ -2,322 +2,209 @@
 <html lang="en">
 
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#050813">
-
-<title>UniPop Signage — Frank G.</title>
-
-<link rel="stylesheet" href="../assets/css/style.css">
-<link rel="stylesheet" href="../assets/css/project.css">
-
-<style>
-
-.signage-content{
-  display:block;
-  max-width:980px;
-  margin:44px auto 0;
-}
-
-.signage-content>section{
-  margin:0 0 48px;
-}
-
-.signage-content h2{
-  margin-bottom:14px;
-}
-
-.signage-content p{
-  line-height:1.75;
-  color:#b8c0d3;
-}
-
-
-/* PROJECT DETAIL CARDS */
-
-.detail-grid{
-  display:grid;
-  grid-template-columns:repeat(2,minmax(0,1fr));
-  gap:18px;
-  margin-top:24px;
-}
-
-.detail-card{
-  padding:22px;
-
-  border:
-  1px solid rgba(255,255,255,.09);
-
-  border-radius:18px;
-
-  background:
-  linear-gradient(
-    180deg,
-    rgba(255,255,255,.035),
-    rgba(255,255,255,.018)
-  );
-}
-
-.detail-card h3{
-  margin:0 0 8px;
-  font-size:1rem;
-  color:#fff;
-}
-
-.detail-card p{
-  margin:0;
-  font-size:.96rem;
-}
-
-
-/* TECHNOLOGY */
-
-.tech-list{
-  display:flex;
-  flex-wrap:wrap;
-  gap:10px;
-  margin-top:20px;
-}
-
-.tech-chip{
-  padding:9px 12px;
-
-  border:
-  1px solid rgba(139,92,246,.28);
-
-  border-radius:999px;
-
-  background:
-  rgba(109,74,255,.08);
-
-  color:#c9b8ff;
-
-  font-size:.86rem;
-  font-weight:700;
-
-  letter-spacing:.04em;
-}
-
-
-/* =====================================
-   MEDIA CAROUSEL
-   Images: 1600 x 900 px / 16:9
-   ===================================== */
-
-.carousel-shell{
-
-  position:relative;
-
-  width:min(
-    1520px,
-    calc(100vw - 56px)
-  );
-
-  margin:26px 0 0 50%;
-
-  transform:
-  translateX(-50%);
-
-  padding:16px;
-
-  border:
-  1px solid rgba(255,255,255,.09);
-
-  border-radius:22px;
-
-  background:
-  rgba(255,255,255,.018);
-
-  overflow:hidden;
-}
-
-
-.carousel-viewport{
-
-  width:100%;
-
-  overflow:hidden;
-
-  border-radius:16px;
-
-  background:#050813;
-}
-
-
-.carousel-track{
-
-  display:flex;
-
-  width:100%;
-
-  transition:
-  transform .45s
-  cubic-bezier(.2,.75,.2,1);
-}
-
-
-.carousel-slide{
-
-  flex:0 0 100%;
-
-  width:100%;
-
-  margin:0;
-  padding:0;
-
-  display:flex;
-
-  align-items:center;
-  justify-content:center;
-
-  overflow:hidden;
-
-  aspect-ratio:16 / 9;
-
-  background:#050813;
-}
-
-
-.carousel-slide img{
-
-  display:block;
-
-  width:100%;
-  height:100%;
-
-  object-fit:cover;
-  object-position:center;
-
-  margin:0;
-  padding:0;
-}
-
-
-.carousel-nav{
-
-  display:flex;
-
-  align-items:center;
-  justify-content:space-between;
-
-  gap:16px;
-
-  margin-top:14px;
-}
-
-
-.carousel-dots{
-
-  display:flex;
-
-  flex:1;
-
-  flex-wrap:wrap;
-
-  justify-content:center;
-
-  gap:8px;
-}
-
-
-.carousel-dot{
-
-  width:9px;
-  height:9px;
-
-  padding:0;
-
-  border:none;
-
-  border-radius:50%;
-
-  background:#465068;
-
-  cursor:pointer;
-}
-
-
-.carousel-dot.active{
-
-  background:#8b5cf6;
-
-  box-shadow:
-  0 0 0 4px
-  rgba(139,92,246,.12);
-}
-
-
-.carousel-btn{
-
-  width:44px;
-  height:44px;
-
-  border-radius:12px;
-
-  border:
-  1px solid rgba(255,255,255,.12);
-
-  background:
-  rgba(255,255,255,.04);
-
-  color:#fff;
-
-  font-size:1.25rem;
-
-  cursor:pointer;
-}
-
-
-.carousel-btn:hover{
-
-  background:
-  rgba(139,92,246,.14);
-
-  border-color:
-  rgba(139,92,246,.38);
-}
-
-
-.carousel-caption{
-
-  margin:12px 0 0;
-
-  text-align:center;
-
-  color:#8f9ab0;
-
-  font-size:.9rem;
-}
-
-
-/* MOBILE */
-
-@media(max-width:760px){
-
-  .detail-grid{
-    grid-template-columns:1fr;
-  }
-
-  .signage-content{
-    margin-top:30px;
-  }
-
-  .signage-content>section{
-    margin-bottom:38px;
-  }
-
-  .carousel-shell{
-
-    width:
-    calc(100vw - 24px);
-
-    padding:10px;
-  }
-
-}
-
-</style>
-
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#050813">
+
+  <title>UniPop Signage — Frank G.</title>
+
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/project.css">
+
+  <style>
+    .signage-content{
+      display:block;
+      max-width:980px;
+      margin:44px auto 0;
+    }
+
+    .signage-content>section{
+      margin:0 0 48px;
+    }
+
+    .signage-content h2{
+      margin-bottom:14px;
+    }
+
+    .signage-content p{
+      line-height:1.75;
+      color:#b8c0d3;
+    }
+
+    .detail-grid{
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:18px;
+      margin-top:24px;
+    }
+
+    .detail-card{
+      padding:22px;
+      border:1px solid rgba(255,255,255,.09);
+      border-radius:18px;
+      background:
+        linear-gradient(
+          180deg,
+          rgba(255,255,255,.035),
+          rgba(255,255,255,.018)
+        );
+    }
+
+    .detail-card h3{
+      margin:0 0 8px;
+      font-size:1rem;
+      color:#fff;
+    }
+
+    .detail-card p{
+      margin:0;
+      font-size:.96rem;
+    }
+
+    .tech-list{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:20px;
+    }
+
+    .tech-chip{
+      padding:9px 12px;
+      border:1px solid rgba(139,92,246,.28);
+      border-radius:999px;
+      background:rgba(109,74,255,.08);
+      color:#c9b8ff;
+      font-size:.86rem;
+      font-weight:700;
+      letter-spacing:.04em;
+    }
+
+    /* =====================================
+       MEDIA CAROUSEL
+       Images: 1600 x 900 px / 16:9
+       ===================================== */
+
+    .carousel-shell{
+      position:relative;
+      width:min(1520px,calc(100vw - 56px));
+      margin:26px 0 0 50%;
+      transform:translateX(-50%);
+      padding:16px;
+      border:1px solid rgba(255,255,255,.09);
+      border-radius:22px;
+      background:rgba(255,255,255,.018);
+      overflow:hidden;
+    }
+
+    .carousel-viewport{
+      width:100%;
+      overflow:hidden;
+      border-radius:16px;
+      background:#050813;
+    }
+
+    .carousel-track{
+      display:flex;
+      width:100%;
+      transition:transform .45s cubic-bezier(.2,.75,.2,1);
+    }
+
+    .carousel-slide{
+      flex:0 0 100%;
+      width:100%;
+      margin:0;
+      padding:0;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      overflow:hidden;
+      aspect-ratio:16 / 9;
+      background:#050813;
+    }
+
+    .carousel-slide img{
+      display:block;
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      object-position:center;
+      margin:0;
+      padding:0;
+    }
+
+    .carousel-nav{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      margin-top:14px;
+    }
+
+    .carousel-dots{
+      display:flex;
+      flex:1;
+      flex-wrap:wrap;
+      justify-content:center;
+      gap:8px;
+    }
+
+    .carousel-dot{
+      width:9px;
+      height:9px;
+      padding:0;
+      border:none;
+      border-radius:50%;
+      background:#465068;
+      cursor:pointer;
+    }
+
+    .carousel-dot.active{
+      background:#8b5cf6;
+      box-shadow:0 0 0 4px rgba(139,92,246,.12);
+    }
+
+    .carousel-btn{
+      width:44px;
+      height:44px;
+      border-radius:12px;
+      border:1px solid rgba(255,255,255,.12);
+      background:rgba(255,255,255,.04);
+      color:#fff;
+      font-size:1.25rem;
+      cursor:pointer;
+    }
+
+    .carousel-btn:hover{
+      background:rgba(139,92,246,.14);
+      border-color:rgba(139,92,246,.38);
+    }
+
+    .carousel-caption{
+      margin:12px 0 0;
+      text-align:center;
+      color:#8f9ab0;
+      font-size:.9rem;
+    }
+
+    @media(max-width:760px){
+      .detail-grid{
+        grid-template-columns:1fr;
+      }
+
+      .signage-content{
+        margin-top:30px;
+      }
+
+      .signage-content>section{
+        margin-bottom:38px;
+      }
+
+      .carousel-shell{
+        width:calc(100vw - 24px);
+        padding:10px;
+      }
+    }
+  </style>
 </head>
 
 
@@ -325,767 +212,540 @@
 
 <div class="site-shell">
 
-
 <header class="topbar">
 
-<a
-class="brand"
-href="../index.html">
+  <a class="brand" href="../index.html">
+    FRANK G.<span class="brand-dot">•</span>
+  </a>
 
-FRANK G.<span class="brand-dot">•</span>
-
-</a>
-
-
-<nav class="nav">
-
-<a
-class="active"
-href="../index.html#projects">
-Projects
-</a>
-
-<a href="../index.html#about">
-About
-</a>
-
-<a href="../index.html#timeline">
-Timeline
-</a>
-
-<a href="../index.html#contact">
-Contact
-</a>
-
-</nav>
+  <nav class="nav">
+    <a class="active" href="../index.html#projects">Projects</a>
+    <a href="../index.html#about">About</a>
+    <a href="../index.html#timeline">Timeline</a>
+    <a href="../index.html#contact">Contact</a>
+  </nav>
 
 </header>
 
 
-
 <main>
-
 
 <section class="project-hero">
 
-<a
-class="project-back"
-href="../index.html#projects">
+  <a class="project-back" href="../index.html#projects">
+    ← Back to projects
+  </a>
 
-← Back to projects
+  <div class="project-kicker">
+    UNIPOP · DIGITAL SIGNAGE · WEB
+  </div>
 
-</a>
+  <h1>
+    UniPop Signage
+  </h1>
 
-
-<div class="project-kicker">
-
-UNIPOP · DIGITAL SIGNAGE · WEB
-
-</div>
-
-
-<h1>
-
-UniPop Signage
-
-</h1>
-
-
-<p class="project-lead">
-
-A centrally managed digital signage platform for presenting
-current UniPop courses across multiple locations, combining
-course data, media, QR codes and local display systems.
-
-</p>
+  <p class="project-lead">
+    A browser-based digital signage display that automatically reads
+    UniPop course data and presents the current courses of the day.
+  </p>
 
 </section>
 
 
-
 <div class="project-cover">
 
-<img
-src="../assets/images/projects/signage.jpg"
-alt="UniPop Signage">
+  <img
+    src="../assets/images/projects/signage.jpg"
+    alt="UniPop Signage">
 
 </div>
 
 
-
 <article class="project-content signage-content">
-
 
 <!-- OVERVIEW -->
 
 <section>
 
-<h2>
-Overview
-</h2>
+  <h2>
+    Overview
+  </h2>
 
-<p>
+  <p>
+    UniPop Signage was created as an automated way to display the
+    current UniPop courses on a dedicated screen.
+  </p>
 
-UniPop Signage is a complete digital signage system created
-to present current courses and information on screens installed
-at different UniPop locations.
+  <p>
+    Instead of manually preparing a daily slide or presentation,
+    the application reads the UniPop course data directly from a
+    JSON source and automatically determines which courses are
+    taking place on the current day.
+  </p>
 
-</p>
-
-<p>
-
-Instead of maintaining every display separately, the system
-uses a central web-based builder where courses can be selected,
-images assigned and individual playlists created for each
-location.
-
-</p>
-
-<p>
-
-The connected display devices automatically show the content
-assigned to them, creating a centrally managed communication
-system that can be updated without physically accessing the
-screens.
-
-</p>
+  <p>
+    The result is a simple and reliable display that always shows
+    the relevant daily course information without requiring
+    continuous manual updates.
+  </p>
 
 </section>
-
 
 
 <!-- PROJECT DETAILS -->
 
 <section>
 
-<h2>
-Project details
-</h2>
-
-<p>
-
-The main objective was to replace a traditional static signage
-workflow with a flexible system that uses the existing UniPop
-course data as its central information source.
-
-</p>
-
-<p>
-
-The signage builder loads current course information and makes
-it possible to search and select courses for individual display
-locations. Each screen can have its own playlist, allowing the
-content to be adapted to the audience and location where the
-display is installed.
-
-</p>
-
-<p>
-
-Course information such as title, date, location and description
-is combined automatically with an individual image and a QR code.
-Visitors can therefore discover a course directly on the screen
-and scan the QR code to access the corresponding online
-information.
-
-</p>
-
-<p>
-
-The system was designed not only as a slideshow but as a complete
-content-management workflow. Playlists can be modified remotely,
-course images can be updated and new display locations can be
-added without rebuilding the complete application.
-
-</p>
-
-
-<div class="detail-grid">
-
-
-<div class="detail-card">
-
-<h3>
-Central playlist builder
-</h3>
-
-<p>
-
-A web-based control interface allows courses to be selected,
-arranged and assigned to individual signage locations.
-
-</p>
-
-</div>
-
-
-
-<div class="detail-card">
-
-<h3>
-Multiple locations
-</h3>
-
-<p>
-
-Each display can receive its own playlist, allowing different
-course selections to be shown at different UniPop sites.
-
-</p>
-
-</div>
-
-
-
-<div class="detail-card">
-
-<h3>
-Course database integration
-</h3>
-
-<p>
-
-Current course information is loaded from the UniPop course data
-source instead of being entered manually for each screen.
-
-</p>
-
-</div>
-
-
-
-<div class="detail-card">
-
-<h3>
-Dynamic QR codes
-</h3>
-
-<p>
-
-Each displayed course includes a QR code that gives visitors
-direct access to the corresponding course information.
-
-</p>
-
-</div>
-
-
-
-<div class="detail-card">
-
-<h3>
-Remote content updates
-</h3>
-
-<p>
-
-Playlist changes and new course selections can be published
-centrally without physically accessing the display computer.
-
-</p>
-
-</div>
-
-
-
-<div class="detail-card">
-
-<h3>
-Raspberry Pi displays
-</h3>
-
-<p>
-
-Compact Raspberry Pi systems can operate as dedicated fullscreen
-display clients connected directly to the signage screens.
-
-</p>
-
-</div>
-
-
-
-<div class="detail-card">
-
-<h3>
-Integrated printing
-</h3>
-
-<p>
-
-The system can also generate a physical course flyer directly
-from the displayed information, extending the digital signage
-workflow into print.
-
-</p>
-
-</div>
-
-
-
-<div class="detail-card">
-
-<h3>
-Statistics & monitoring
-</h3>
-
-<p>
-
-Print activity and display status can be monitored, providing
-additional information about the use of the individual signage
-stations.
-
-</p>
-
-</div>
-
-
-</div>
+  <h2>
+    Project details
+  </h2>
+
+  <p>
+    The main goal of the project was to automate a task that would
+    otherwise require daily preparation. UniPop course information
+    already existed as structured data, so the signage application
+    was designed to reuse this source directly.
+  </p>
+
+  <p>
+    When the page loads, the application reads the JSON course data,
+    compares the course dates with the current date and filters the
+    dataset so that only the courses taking place that day remain.
+  </p>
+
+  <p>
+    The relevant course information is then formatted automatically
+    for a fullscreen display. This allows the screen to stay current
+    even when the course programme changes, without manually editing
+    the presentation itself.
+  </p>
+
+  <p>
+    The project was an early step toward more data-driven UniPop
+    display systems and demonstrated how the existing course database
+    could be reused for automated communication tools.
+  </p>
+
+
+  <div class="detail-grid">
+
+    <div class="detail-card">
+      <h3>
+        JSON course data
+      </h3>
+
+      <p>
+        The display reads structured UniPop course information
+        directly from a JSON data source.
+      </p>
+    </div>
+
+
+    <div class="detail-card">
+      <h3>
+        Automatic date filtering
+      </h3>
+
+      <p>
+        The application compares course dates with the current date
+        and selects only the courses scheduled for that day.
+      </p>
+    </div>
+
+
+    <div class="detail-card">
+      <h3>
+        No daily editing
+      </h3>
+
+      <p>
+        Because the content is generated from the course data,
+        there is no need to manually rebuild the display every day.
+      </p>
+    </div>
+
+
+    <div class="detail-card">
+      <h3>
+        Dynamic course information
+      </h3>
+
+      <p>
+        Course titles, times, locations and other available details
+        can be presented automatically from the data source.
+      </p>
+    </div>
+
+
+    <div class="detail-card">
+      <h3>
+        Fullscreen display
+      </h3>
+
+      <p>
+        The interface was designed for continuous presentation on a
+        dedicated information screen.
+      </p>
+    </div>
+
+
+    <div class="detail-card">
+      <h3>
+        Data-driven workflow
+      </h3>
+
+      <p>
+        The project showed how a central course data source could be
+        reused for automated UniPop communication.
+      </p>
+    </div>
+
+  </div>
 
 </section>
-
 
 
 <!-- TECHNOLOGY -->
 
 <section>
 
-<h2>
-Technology
-</h2>
+  <h2>
+    Technology
+  </h2>
 
-<p>
+  <p>
+    UniPop Signage is built as a lightweight web application using
+    HTML, CSS and JavaScript.
+  </p>
 
-UniPop Signage is built as a browser-based distributed system
-using HTML, CSS and JavaScript for both the management interface
-and the individual display pages.
+  <p>
+    JavaScript loads the structured JSON course data, processes the
+    individual course entries and compares their dates with the
+    current day. The resulting courses are then inserted dynamically
+    into the display interface.
+  </p>
 
-</p>
-
-<p>
-
-Structured course data provides the content displayed by the
-system. The builder combines this information with uploaded
-images, playlist configuration and automatically generated QR
-codes.
-
-</p>
-
-<p>
-
-Supabase is used for central data storage and synchronisation.
-Playlist information and associated media can therefore be
-shared between the management interface and the individual
-signage displays without requiring a traditional local server.
-
-</p>
-
-<p>
-
-At the display locations, Raspberry Pi systems can operate in
-fullscreen kiosk mode. After startup, each device automatically
-loads the display page assigned to its location and continuously
-presents the corresponding playlist.
-
-</p>
+  <p>
+    Because the application runs entirely in the browser, it does
+    not require a traditional desktop application or manual content
+    preparation. Updating the underlying course data is sufficient
+    for the display to reflect the latest available information.
+  </p>
 
 
-<div class="tech-list">
+  <div class="tech-list">
 
-<span class="tech-chip">
-JavaScript
-</span>
+    <span class="tech-chip">
+      GitHub Pages
+    </span>
 
-<span class="tech-chip">
-HTML
-</span>
+    <span class="tech-chip">
+      JavaScript
+    </span>
 
-<span class="tech-chip">
-CSS
-</span>
+    <span class="tech-chip">
+      HTML
+    </span>
 
-<span class="tech-chip">
-Supabase
-</span>
+    <span class="tech-chip">
+      CSS
+    </span>
 
-<span class="tech-chip">
-JSON
-</span>
+    <span class="tech-chip">
+      JSON
+    </span>
 
-<span class="tech-chip">
-Course Database
-</span>
+    <span class="tech-chip">
+      Course Data
+    </span>
 
-<span class="tech-chip">
-Raspberry Pi
-</span>
+    <span class="tech-chip">
+      Date Filtering
+    </span>
 
-<span class="tech-chip">
-Kiosk Display
-</span>
+    <span class="tech-chip">
+      Dynamic Content
+    </span>
 
-<span class="tech-chip">
-QR Codes
-</span>
+    <span class="tech-chip">
+      Fullscreen Display
+    </span>
 
-<span class="tech-chip">
-Dynamic Playlists
-</span>
+    <span class="tech-chip">
+      Responsive Web UI
+    </span>
 
-<span class="tech-chip">
-Image Storage
-</span>
-
-<span class="tech-chip">
-Print System
-</span>
-
-<span class="tech-chip">
-Responsive Web UI
-</span>
-
-</div>
+  </div>
 
 </section>
-
 
 
 <!-- MEDIA -->
 
 <section>
 
-<h2>
-Media & demo
-</h2>
+  <h2>
+    Media & demo
+  </h2>
 
-<p>
+  <p>
+    The screenshots below show the data-driven workflow behind the
+    signage system and the resulting daily course display.
+  </p>
 
-The screenshots below show the complete UniPop Signage workflow:
-from selecting current courses and building location-specific
-playlists to the final fullscreen presentation on the signage
-displays.
+  <p>
+    The examples can include the JSON course source, different daily
+    course selections, individual course layouts and the final
+    fullscreen display running with automatically generated content.
+  </p>
 
-</p>
 
-<p>
+  <div class="carousel-shell" data-carousel>
 
-The examples can include the central builder, course selection,
-playlist management, screen preview, the final display interface,
-QR-code integration and the physical print function.
+    <div class="carousel-viewport">
 
-</p>
+      <div class="carousel-track">
 
+        <figure class="carousel-slide">
+          <img
+            src="../assets/images/projects/signage/signage-01.jpg"
+            alt="UniPop Signage daily course display">
+        </figure>
 
 
-<div
-class="carousel-shell"
-data-carousel>
+        <figure class="carousel-slide">
+          <img
+            src="../assets/images/projects/signage/signage-02.jpg"
+            alt="UniPop Signage course data">
+        </figure>
 
 
-<div class="carousel-viewport">
+        <figure class="carousel-slide">
+          <img
+            src="../assets/images/projects/signage/signage-03.jpg"
+            alt="UniPop Signage date filtering">
+        </figure>
 
-<div class="carousel-track">
 
+        <figure class="carousel-slide">
+          <img
+            src="../assets/images/projects/signage/signage-04.jpg"
+            alt="UniPop Signage course presentation">
+        </figure>
 
-<figure class="carousel-slide">
 
-<img
-src="../assets/images/projects/signage/signage-01.jpg"
-alt="UniPop Signage builder">
+        <figure class="carousel-slide">
+          <img
+            src="../assets/images/projects/signage/signage-05.jpg"
+            alt="UniPop Signage fullscreen interface">
+        </figure>
 
-</figure>
 
+        <figure class="carousel-slide">
+          <img
+            src="../assets/images/projects/signage/signage-06.jpg"
+            alt="UniPop Signage project screenshot">
+        </figure>
 
+      </div>
 
-<figure class="carousel-slide">
+    </div>
 
-<img
-src="../assets/images/projects/signage/signage-02.jpg"
-alt="UniPop Signage course selection">
 
-</figure>
+    <div class="carousel-nav">
 
+      <button
+        class="carousel-btn prev"
+        type="button"
+        aria-label="Previous screenshot">
+        ‹
+      </button>
 
+      <div
+        class="carousel-dots"
+        aria-label="Screenshot navigation">
+      </div>
 
-<figure class="carousel-slide">
+      <button
+        class="carousel-btn next"
+        type="button"
+        aria-label="Next screenshot">
+        ›
+      </button>
 
-<img
-src="../assets/images/projects/signage/signage-03.jpg"
-alt="UniPop Signage playlist management">
+    </div>
 
-</figure>
 
+    <p class="carousel-caption">
+      UniPop Signage — project screenshots
+    </p>
 
-
-<figure class="carousel-slide">
-
-<img
-src="../assets/images/projects/signage/signage-04.jpg"
-alt="UniPop Signage display preview">
-
-</figure>
-
-
-
-<figure class="carousel-slide">
-
-<img
-src="../assets/images/projects/signage/signage-05.jpg"
-alt="UniPop Signage fullscreen display">
-
-</figure>
-
-
-
-<figure class="carousel-slide">
-
-<img
-src="../assets/images/projects/signage/signage-06.jpg"
-alt="UniPop Signage printing and QR workflow">
-
-</figure>
-
-
-</div>
-
-</div>
-
-
-
-<div class="carousel-nav">
-
-
-<button
-class="carousel-btn prev"
-type="button"
-aria-label="Previous screenshot">
-
-‹
-
-</button>
-
-
-<div
-class="carousel-dots"
-aria-label="Screenshot navigation">
-</div>
-
-
-<button
-class="carousel-btn next"
-type="button"
-aria-label="Next screenshot">
-
-›
-
-</button>
-
-
-</div>
-
-
-<p class="carousel-caption">
-
-UniPop Signage — project screenshots
-
-</p>
-
-
-</div>
+  </div>
 
 </section>
-
 
 </article>
 
 </main>
 
 
-
 <footer class="footer">
 
-<span>
-© Frank G. — My Projects
-</span>
+  <span>
+    © Frank G. — My Projects
+  </span>
 
-<span>
-
-<a href="../index.html">
-Back home
-</a>
-
-</span>
+  <span>
+    <a href="../index.html">
+      Back home
+    </a>
+  </span>
 
 </footer>
 
-
 </div>
-
 
 
 <script>
 
 (() => {
 
-const carousel =
-document.querySelector('[data-carousel]');
+  const carousel =
+    document.querySelector('[data-carousel]');
 
-if(!carousel) return;
-
-
-const track =
-carousel.querySelector('.carousel-track');
+  if(!carousel) return;
 
 
-const slides =
-[
-...carousel.querySelectorAll(
-'.carousel-slide'
-)
-];
+  const track =
+    carousel.querySelector('.carousel-track');
+
+  const slides =
+    [...carousel.querySelectorAll('.carousel-slide')];
+
+  const dotsWrap =
+    carousel.querySelector('.carousel-dots');
+
+  const prev =
+    carousel.querySelector('.prev');
+
+  const next =
+    carousel.querySelector('.next');
 
 
-const dotsWrap =
-carousel.querySelector(
-'.carousel-dots'
-);
+  let index = 0;
 
 
-const prev =
-carousel.querySelector('.prev');
+  const dots =
+    slides.map((_,i)=>{
+
+      const dot =
+        document.createElement('button');
+
+      dot.className =
+        'carousel-dot';
+
+      dot.type =
+        'button';
+
+      dot.setAttribute(
+        'aria-label',
+        `Show screenshot ${i+1}`
+      );
+
+      dot.addEventListener(
+        'click',
+        ()=>goTo(i)
+      );
+
+      dotsWrap.appendChild(dot);
+
+      return dot;
+
+    });
 
 
-const next =
-carousel.querySelector('.next');
+  function goTo(i){
+
+    index =
+      (i + slides.length)
+      % slides.length;
+
+    track.style.transform =
+      `translateX(-${index*100}%)`;
+
+    dots.forEach(
+      (dot,dotIndex)=>{
+
+        dot.classList.toggle(
+          'active',
+          dotIndex===index
+        );
+
+      }
+    );
+
+  }
 
 
-let index = 0;
+  prev.addEventListener(
+    'click',
+    ()=>goTo(index-1)
+  );
 
 
-
-const dots =
-slides.map((_,i)=>{
-
-const dot =
-document.createElement(
-'button'
-);
-
-dot.className =
-'carousel-dot';
-
-dot.type =
-'button';
-
-dot.setAttribute(
-'aria-label',
-`Show screenshot ${i+1}`
-);
+  next.addEventListener(
+    'click',
+    ()=>goTo(index+1)
+  );
 
 
-dot.addEventListener(
-'click',
-()=>goTo(i)
-);
+  let startX=null;
 
 
-dotsWrap.appendChild(dot);
+  carousel.addEventListener(
+    'touchstart',
+    e=>{
 
-return dot;
+      startX =
+        e.touches[0].clientX;
 
-});
-
-
-
-function goTo(i){
-
-index =
-(i + slides.length)
-% slides.length;
+    },
+    {passive:true}
+  );
 
 
-track.style.transform =
-`translateX(-${index*100}%)`;
+  carousel.addEventListener(
+    'touchend',
+    e=>{
+
+      if(startX===null)
+        return;
+
+      const delta =
+        e.changedTouches[0].clientX
+        - startX;
+
+      if(Math.abs(delta)>45){
+
+        goTo(
+          index +
+          (delta<0 ? 1 : -1)
+        );
+
+      }
+
+      startX=null;
+
+    },
+    {passive:true}
+  );
 
 
-dots.forEach(
-(dot,dotIndex)=>{
-
-dot.classList.toggle(
-'active',
-dotIndex===index
-);
-
-});
-
-}
-
-
-
-prev.addEventListener(
-'click',
-()=>goTo(index-1)
-);
-
-
-next.addEventListener(
-'click',
-()=>goTo(index+1)
-);
-
-
-
-let startX=null;
-
-
-carousel.addEventListener(
-'touchstart',
-e=>{
-
-startX =
-e.touches[0].clientX;
-
-},
-{passive:true}
-);
-
-
-carousel.addEventListener(
-'touchend',
-e=>{
-
-if(startX===null)
-return;
-
-
-const delta =
-e.changedTouches[0].clientX
--startX;
-
-
-if(Math.abs(delta)>45){
-
-goTo(
-index +
-(delta<0 ? 1 : -1)
-);
-
-}
-
-
-startX=null;
-
-},
-{passive:true}
-);
-
-
-goTo(0);
+  goTo(0);
 
 })();
 
 </script>
-
 
 </body>
 </html>
