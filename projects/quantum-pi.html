@@ -1,1 +1,763 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#050813"><title>Quantum Pi — Frank G.</title><link rel="stylesheet" href="../assets/css/style.css"><link rel="stylesheet" href="../assets/css/project.css"></head><body><div class="site-shell"><header class="topbar"><a class="brand" href="../index.html">FRANK G.<span class="brand-dot">•</span></a><nav class="nav"><a class="active" href="../index.html#projects">Projects</a><a href="../index.html#about">About</a><a href="../index.html#timeline">Timeline</a><a href="../index.html#contact">Contact</a></nav></header><main><section class="project-hero"><a class="project-back" href="../index.html#projects">← Back to projects</a><div class="project-kicker">HARDWARE · RASPBERRY PI · EXPERIMENT</div><h1>Quantum Pi</h1><p class="project-lead">Experimental Raspberry Pi hardware project combining computing, electronics and exploration.</p></section><div class="project-cover"><img src="../assets/images/projects/quantum-pi.jpg" alt="Quantum Pi"></div><article class="project-content"><p class="edit-note">This page is ready for your own project content. Replace the image and edit this HTML whenever you want.</p><section><h2>Overview</h2><p>Experimental Raspberry Pi hardware project combining computing, electronics and exploration.</p></section><section><h2>Project details</h2><p>Add screenshots, the story behind the project, your contribution, technologies, results and future ideas here.</p></section><section><h2>Media & demo</h2><p>This section can contain additional images, video, GitHub links or an embedded live project.</p></section></article></main><footer class="footer"><span>© Frank G. — My Projects</span><span><a href="../index.html">Back home</a></span></footer></div></body></html>
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#050813">
+
+  <title>Quantum Pi — Frank G.</title>
+
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/project.css">
+
+  <style>
+
+    .quantum-content{
+      display:block;
+      max-width:980px;
+      margin:44px auto 0;
+    }
+
+    .quantum-content>section{
+      margin:0 0 48px;
+    }
+
+    .quantum-content h2{
+      margin-bottom:14px;
+    }
+
+    .quantum-content p{
+      line-height:1.75;
+      color:#b8c0d3;
+    }
+
+    .detail-grid{
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:18px;
+      margin-top:24px;
+    }
+
+    .detail-card{
+      padding:22px;
+      border:1px solid rgba(255,255,255,.09);
+      border-radius:18px;
+      background:
+        linear-gradient(
+          180deg,
+          rgba(255,255,255,.035),
+          rgba(255,255,255,.018)
+        );
+    }
+
+    .detail-card h3{
+      margin:0 0 8px;
+      font-size:1rem;
+      color:#fff;
+    }
+
+    .detail-card p{
+      margin:0;
+      font-size:.96rem;
+    }
+
+    .tech-list{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:20px;
+    }
+
+    .tech-chip{
+      padding:9px 12px;
+      border:1px solid rgba(139,92,246,.28);
+      border-radius:999px;
+      background:rgba(109,74,255,.08);
+      color:#c9b8ff;
+      font-size:.86rem;
+      font-weight:700;
+      letter-spacing:.04em;
+    }
+
+    /* =====================================
+       MEDIA CAROUSEL
+       Images: 1600 x 900 px / 16:9
+       ===================================== */
+
+    .carousel-shell{
+      position:relative;
+      width:min(1520px,calc(100vw - 56px));
+      margin:26px 0 0 50%;
+      transform:translateX(-50%);
+      padding:16px;
+      border:1px solid rgba(255,255,255,.09);
+      border-radius:22px;
+      background:rgba(255,255,255,.018);
+      overflow:hidden;
+    }
+
+    .carousel-viewport{
+      width:100%;
+      overflow:hidden;
+      border-radius:16px;
+      background:#050813;
+    }
+
+    .carousel-track{
+      display:flex;
+      width:100%;
+      transition:transform .45s cubic-bezier(.2,.75,.2,1);
+    }
+
+    .carousel-slide{
+      flex:0 0 100%;
+      width:100%;
+      margin:0;
+      padding:0;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      overflow:hidden;
+      aspect-ratio:16 / 9;
+      background:#050813;
+    }
+
+    .carousel-slide img{
+      display:block;
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      object-position:center;
+      margin:0;
+      padding:0;
+    }
+
+    .carousel-nav{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      margin-top:14px;
+    }
+
+    .carousel-dots{
+      display:flex;
+      flex:1;
+      flex-wrap:wrap;
+      justify-content:center;
+      gap:8px;
+    }
+
+    .carousel-dot{
+      width:9px;
+      height:9px;
+      padding:0;
+      border:none;
+      border-radius:50%;
+      background:#465068;
+      cursor:pointer;
+    }
+
+    .carousel-dot.active{
+      background:#8b5cf6;
+      box-shadow:0 0 0 4px rgba(139,92,246,.12);
+    }
+
+    .carousel-btn{
+      width:44px;
+      height:44px;
+      border-radius:12px;
+      border:1px solid rgba(255,255,255,.12);
+      background:rgba(255,255,255,.04);
+      color:#fff;
+      font-size:1.25rem;
+      cursor:pointer;
+    }
+
+    .carousel-btn:hover{
+      background:rgba(139,92,246,.14);
+      border-color:rgba(139,92,246,.38);
+    }
+
+    .carousel-caption{
+      margin:12px 0 0;
+      text-align:center;
+      color:#8f9ab0;
+      font-size:.9rem;
+    }
+
+    @media(max-width:760px){
+
+      .detail-grid{
+        grid-template-columns:1fr;
+      }
+
+      .quantum-content{
+        margin-top:30px;
+      }
+
+      .quantum-content>section{
+        margin-bottom:38px;
+      }
+
+      .carousel-shell{
+        width:calc(100vw - 24px);
+        padding:10px;
+      }
+
+    }
+
+  </style>
+</head>
+
+
+<body>
+
+<div class="site-shell">
+
+<header class="topbar">
+
+  <a class="brand" href="../index.html">
+    FRANK G.<span class="brand-dot">•</span>
+  </a>
+
+  <nav class="nav">
+    <a class="active" href="../index.html#projects">Projects</a>
+    <a href="../index.html#about">About</a>
+    <a href="../index.html#timeline">Timeline</a>
+    <a href="../index.html#contact">Contact</a>
+  </nav>
+
+</header>
+
+
+<main>
+
+<section class="project-hero">
+
+  <a class="project-back" href="../index.html#projects">
+    ← Back to projects
+  </a>
+
+  <div class="project-kicker">
+    HARDWARE · RASPBERRY PI · QUANTUM COMPUTING
+  </div>
+
+  <h1>
+    Quantum Pi
+  </h1>
+
+  <p class="project-lead">
+    A Raspberry Pi-based quantum-computer simulation and monitoring
+    demonstrator created as the final project of my Quantum Computing
+    course at the University of Chicago.
+  </p>
+
+</section>
+
+
+<div class="project-cover">
+
+  <img
+    src="../assets/images/projects/quantum-pi.jpg"
+    alt="Quantum Pi">
+
+</div>
+
+
+<article class="project-content quantum-content">
+
+
+<section>
+
+  <h2>
+    Overview
+  </h2>
+
+  <p>
+    Quantum Pi is an experimental hardware demonstrator built to
+    visualise how the control and monitoring interface of a quantum
+    computer could look and behave.
+  </p>
+
+  <p>
+    The project does not attempt to reproduce real quantum hardware.
+    Instead, a Raspberry Pi simulates the system states and presents
+    them through a dedicated touchscreen interface.
+  </p>
+
+  <p>
+    The model was created as the final project of my Quantum Computing
+    course at the University of Chicago and was designed to turn
+    theoretical concepts into a physical and visual demonstration.
+  </p>
+
+</section>
+
+
+<section>
+
+  <h2>
+    Project details
+  </h2>
+
+  <p>
+    Quantum computing is normally presented through mathematical
+    models, circuit diagrams and software simulations. For the final
+    course project, I wanted to create something physical that could
+    make the idea of operating and monitoring a quantum system more
+    tangible.
+  </p>
+
+  <p>
+    A Raspberry Pi acts as the central controller of the demonstration
+    system. Instead of controlling real qubits, it generates simulated
+    quantum-computer states and system information that are then
+    visualised on the integrated touchscreen.
+  </p>
+
+  <p>
+    The interface is designed to resemble a monitoring console. It can
+    present different system states, operating parameters and changing
+    values in real time, creating the impression of observing a small
+    quantum-computing installation.
+  </p>
+
+  <p>
+    The project therefore acts as a show model: it combines physical
+    hardware, interface design and simulated quantum concepts into a
+    compact demonstrator that can be presented without access to an
+    actual quantum computer.
+  </p>
+
+
+  <div class="detail-grid">
+
+    <div class="detail-card">
+      <h3>
+        Quantum-state simulation
+      </h3>
+
+      <p>
+        The Raspberry Pi generates simulated system states rather than
+        controlling actual quantum hardware.
+      </p>
+    </div>
+
+
+    <div class="detail-card">
+      <h3>
+        Monitoring concept
+      </h3>
+
+      <p>
+        The interface explores how status information and operational
+        data from a quantum-computing system might be presented.
+      </p>
+    </div>
+
+
+    <div class="detail-card">
+      <h3>
+        Touchscreen interface
+      </h3>
+
+      <p>
+        An integrated touchscreen displays the different simulated
+        states and allows the system to be experienced as a compact
+        standalone installation.
+      </p>
+    </div>
+
+
+    <div class="detail-card">
+      <h3>
+        Raspberry Pi
+      </h3>
+
+      <p>
+        The Raspberry Pi handles the simulation logic, user interface
+        and presentation of the changing system data.
+      </p>
+    </div>
+
+
+    <div class="detail-card">
+      <h3>
+        Physical demonstrator
+      </h3>
+
+      <p>
+        The project transforms an abstract topic into a physical object
+        that can be demonstrated and explained to other people.
+      </p>
+    </div>
+
+
+    <div class="detail-card">
+      <h3>
+        Course final project
+      </h3>
+
+      <p>
+        Quantum Pi was developed as the final project of my Quantum
+        Computing course at the University of Chicago.
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+
+<section>
+
+  <h2>
+    Simulation concept
+  </h2>
+
+  <p>
+    A real quantum computer requires an extensive technical
+    infrastructure around the quantum processor itself. Operators do
+    not simply interact directly with individual qubits; they rely on
+    control software, status information and monitoring systems.
+  </p>
+
+  <p>
+    Quantum Pi explores this interface layer from a conceptual point
+    of view.
+  </p>
+
+  <p>
+    The Raspberry Pi generates changing simulated values and states,
+    which are presented through the touchscreen as if they were coming
+    from a quantum-computing system.
+  </p>
+
+  <p>
+    This creates a visual representation of how an operator might
+    observe different operating states rather than trying to imitate
+    the underlying quantum physics in hardware.
+  </p>
+
+</section>
+
+
+<section>
+
+  <h2>
+    Technology
+  </h2>
+
+  <p>
+    Quantum Pi is built around a Raspberry Pi combined with a compact
+    touchscreen display.
+  </p>
+
+  <p>
+    The Raspberry Pi executes the simulation logic and generates the
+    values shown by the monitoring interface. The display provides the
+    visual layer for system status, simulated quantum states and other
+    operating information.
+  </p>
+
+  <p>
+    The project combines software simulation with embedded hardware and
+    interface design, allowing the entire demonstrator to run as a
+    self-contained system.
+  </p>
+
+  <p>
+    The main focus was not to emulate the enormous complexity of a real
+    quantum computer, but to build an understandable visual model of
+    how a control and monitoring environment could be represented.
+  </p>
+
+
+  <div class="tech-list">
+
+    <span class="tech-chip">Raspberry Pi</span>
+    <span class="tech-chip">Touchscreen</span>
+    <span class="tech-chip">Python</span>
+    <span class="tech-chip">Quantum Simulation</span>
+    <span class="tech-chip">System Monitoring</span>
+    <span class="tech-chip">Embedded UI</span>
+    <span class="tech-chip">Real-Time Visualisation</span>
+    <span class="tech-chip">Hardware Prototype</span>
+    <span class="tech-chip">Quantum Computing</span>
+    <span class="tech-chip">Educational Demonstrator</span>
+
+  </div>
+
+</section>
+
+
+<section>
+
+  <h2>
+    Media & demo
+  </h2>
+
+  <p>
+    The images below can show the complete Quantum Pi project:
+    the Raspberry Pi hardware, the touchscreen interface, different
+    simulated quantum states and the finished demonstrator.
+  </p>
+
+  <p>
+    Additional screenshots can document the different monitoring
+    screens and show how the displayed values and states change while
+    the simulation is running.
+  </p>
+
+
+  <div class="carousel-shell" data-carousel>
+
+    <div class="carousel-viewport">
+
+      <div class="carousel-track">
+
+        <figure class="carousel-slide">
+          <img
+            src="../assets/images/projects/quantum/quantum-01.jpg"
+            alt="Quantum Pi finished demonstrator">
+        </figure>
+
+
+        <figure class="carousel-slide">
+          <img
+            src="../assets/images/projects/quantum/quantum-02.jpg"
+            alt="Quantum Pi touchscreen interface">
+        </figure>
+
+
+        <figure class="carousel-slide">
+          <img
+            src="../assets/images/projects/quantum/quantum-03.jpg"
+            alt="Quantum Pi simulated quantum state">
+        </figure>
+
+
+        <figure class="carousel-slide">
+          <img
+            src="../assets/images/projects/quantum/quantum-04.jpg"
+            alt="Quantum Pi monitoring system">
+        </figure>
+
+
+        <figure class="carousel-slide">
+          <img
+            src="../assets/images/projects/quantum/quantum-05.jpg"
+            alt="Quantum Pi Raspberry Pi hardware">
+        </figure>
+
+
+        <figure class="carousel-slide">
+          <img
+            src="../assets/images/projects/quantum/quantum-06.jpg"
+            alt="Quantum Pi system visualisation">
+        </figure>
+
+      </div>
+
+    </div>
+
+
+    <div class="carousel-nav">
+
+      <button
+        class="carousel-btn prev"
+        type="button"
+        aria-label="Previous screenshot">
+        ‹
+      </button>
+
+      <div
+        class="carousel-dots"
+        aria-label="Screenshot navigation">
+      </div>
+
+      <button
+        class="carousel-btn next"
+        type="button"
+        aria-label="Next screenshot">
+        ›
+      </button>
+
+    </div>
+
+
+    <p class="carousel-caption">
+      Quantum Pi — simulation & hardware demonstrator
+    </p>
+
+  </div>
+
+</section>
+
+
+</article>
+
+</main>
+
+
+<footer class="footer">
+
+  <span>
+    © Frank G. — My Projects
+  </span>
+
+  <span>
+    <a href="../index.html">
+      Back home
+    </a>
+  </span>
+
+</footer>
+
+
+</div>
+
+
+<script>
+
+(() => {
+
+  const carousel =
+    document.querySelector('[data-carousel]');
+
+  if(!carousel) return;
+
+  const track =
+    carousel.querySelector('.carousel-track');
+
+  const slides =
+    [...carousel.querySelectorAll('.carousel-slide')];
+
+  const dotsWrap =
+    carousel.querySelector('.carousel-dots');
+
+  const prev =
+    carousel.querySelector('.prev');
+
+  const next =
+    carousel.querySelector('.next');
+
+  let index = 0;
+
+
+  const dots =
+    slides.map((_,i)=>{
+
+      const dot =
+        document.createElement('button');
+
+      dot.className =
+        'carousel-dot';
+
+      dot.type =
+        'button';
+
+      dot.setAttribute(
+        'aria-label',
+        `Show screenshot ${i+1}`
+      );
+
+      dot.addEventListener(
+        'click',
+        ()=>goTo(i)
+      );
+
+      dotsWrap.appendChild(dot);
+
+      return dot;
+
+    });
+
+
+  function goTo(i){
+
+    index =
+      (i + slides.length)
+      % slides.length;
+
+    track.style.transform =
+      `translateX(-${index*100}%)`;
+
+    dots.forEach(
+      (dot,dotIndex)=>{
+
+        dot.classList.toggle(
+          'active',
+          dotIndex===index
+        );
+
+      }
+    );
+
+  }
+
+
+  prev.addEventListener(
+    'click',
+    ()=>goTo(index-1)
+  );
+
+
+  next.addEventListener(
+    'click',
+    ()=>goTo(index+1)
+  );
+
+
+  let startX=null;
+
+
+  carousel.addEventListener(
+    'touchstart',
+    e=>{
+
+      startX =
+        e.touches[0].clientX;
+
+    },
+    {passive:true}
+  );
+
+
+  carousel.addEventListener(
+    'touchend',
+    e=>{
+
+      if(startX===null)
+        return;
+
+      const delta =
+        e.changedTouches[0].clientX
+        - startX;
+
+      if(Math.abs(delta)>45){
+
+        goTo(
+          index +
+          (delta<0 ? 1 : -1)
+        );
+
+      }
+
+      startX=null;
+
+    },
+    {passive:true}
+  );
+
+
+  goTo(0);
+
+})();
+
+</script>
+
+</body>
+</html>
