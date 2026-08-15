@@ -1,1 +1,711 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#050813"><title>Lëtzebuerger Sprooch — Frank G.</title><link rel="stylesheet" href="../assets/css/style.css"><link rel="stylesheet" href="../assets/css/project.css"></head><body><div class="site-shell"><header class="topbar"><a class="brand" href="../index.html">FRANK G.<span class="brand-dot">•</span></a><nav class="nav"><a class="active" href="../index.html#projects">Projects</a><a href="../index.html#about">About</a><a href="../index.html#timeline">Timeline</a><a href="../index.html#contact">Contact</a></nav></header><main><section class="project-hero"><a class="project-back" href="../index.html#projects">← Back to projects</a><div class="project-kicker">UNIPOP · AUDIO · EXPERIENCE</div><h1>Lëtzebuerger Sprooch</h1><p class="project-lead">A digital experience around Luxembourgish language and culinary culture, combining audio and course content.</p></section><div class="project-cover"><img src="../assets/images/projects/letzebuerger-sprooch.jpg" alt="Lëtzebuerger Sprooch"></div><article class="project-content"><p class="edit-note">This page is ready for your own project content. Replace the image and edit this HTML whenever you want.</p><section><h2>Overview</h2><p>A digital experience around Luxembourgish language and culinary culture, combining audio and course content.</p></section><section><h2>Project details</h2><p>Add screenshots, the story behind the project, your contribution, technologies, results and future ideas here.</p></section><section><h2>Media & demo</h2><p>This section can contain additional images, video, GitHub links or an embedded live project.</p></section></article></main><footer class="footer"><span>© Frank G. — My Projects</span><span><a href="../index.html">Back home</a></span></footer></div></body></html>
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#050813">
+
+  <title>Lëtzebuerger Sprooch — Frank G.</title>
+
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/project.css">
+
+  <style>
+
+    .sprooch-content{
+      display:block;
+      max-width:980px;
+      margin:44px auto 0;
+    }
+
+    .sprooch-content>section{
+      margin:0 0 48px;
+    }
+
+    .sprooch-content h2{
+      margin-bottom:14px;
+    }
+
+    .sprooch-content p{
+      line-height:1.75;
+      color:#b8c0d3;
+    }
+
+    .detail-grid{
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:18px;
+      margin-top:24px;
+    }
+
+    .detail-card{
+      padding:22px;
+      border:1px solid rgba(255,255,255,.09);
+      border-radius:18px;
+      background:
+        linear-gradient(
+          180deg,
+          rgba(255,255,255,.035),
+          rgba(255,255,255,.018)
+        );
+    }
+
+    .detail-card h3{
+      margin:0 0 8px;
+      font-size:1rem;
+      color:#fff;
+    }
+
+    .detail-card p{
+      margin:0;
+      font-size:.96rem;
+    }
+
+    .tech-list{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:20px;
+    }
+
+    .tech-chip{
+      padding:9px 12px;
+      border:1px solid rgba(139,92,246,.28);
+      border-radius:999px;
+      background:rgba(109,74,255,.08);
+      color:#c9b8ff;
+      font-size:.86rem;
+      font-weight:700;
+      letter-spacing:.04em;
+    }
+
+    /* MEDIA CAROUSEL */
+
+    .carousel-shell{
+      position:relative;
+      width:min(1520px,calc(100vw - 56px));
+      margin:26px 0 0 50%;
+      transform:translateX(-50%);
+      padding:16px;
+      border:1px solid rgba(255,255,255,.09);
+      border-radius:22px;
+      background:rgba(255,255,255,.018);
+      overflow:hidden;
+    }
+
+    .carousel-viewport{
+      width:100%;
+      overflow:hidden;
+      border-radius:16px;
+      background:#050813;
+    }
+
+    .carousel-track{
+      display:flex;
+      width:100%;
+      transition:transform .45s cubic-bezier(.2,.75,.2,1);
+    }
+
+    .carousel-slide{
+      flex:0 0 100%;
+      width:100%;
+      margin:0;
+      padding:0;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      overflow:hidden;
+      aspect-ratio:16 / 9;
+      background:#050813;
+    }
+
+    .carousel-slide img{
+      display:block;
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      object-position:center;
+      margin:0;
+      padding:0;
+    }
+
+    .carousel-nav{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      margin-top:14px;
+    }
+
+    .carousel-dots{
+      display:flex;
+      flex:1;
+      flex-wrap:wrap;
+      justify-content:center;
+      gap:8px;
+    }
+
+    .carousel-dot{
+      width:9px;
+      height:9px;
+      padding:0;
+      border:none;
+      border-radius:50%;
+      background:#465068;
+      cursor:pointer;
+    }
+
+    .carousel-dot.active{
+      background:#8b5cf6;
+      box-shadow:0 0 0 4px rgba(139,92,246,.12);
+    }
+
+    .carousel-btn{
+      width:44px;
+      height:44px;
+      border-radius:12px;
+      border:1px solid rgba(255,255,255,.12);
+      background:rgba(255,255,255,.04);
+      color:#fff;
+      font-size:1.25rem;
+      cursor:pointer;
+    }
+
+    .carousel-btn:hover{
+      background:rgba(139,92,246,.14);
+      border-color:rgba(139,92,246,.38);
+    }
+
+    .carousel-caption{
+      margin:12px 0 0;
+      text-align:center;
+      color:#8f9ab0;
+      font-size:.9rem;
+    }
+
+    @media(max-width:760px){
+
+      .detail-grid{
+        grid-template-columns:1fr;
+      }
+
+      .sprooch-content{
+        margin-top:30px;
+      }
+
+      .sprooch-content>section{
+        margin-bottom:38px;
+      }
+
+      .carousel-shell{
+        width:calc(100vw - 24px);
+        padding:10px;
+      }
+
+    }
+
+  </style>
+</head>
+
+<body>
+
+<div class="site-shell">
+
+<header class="topbar">
+
+  <a class="brand" href="../index.html">
+    FRANK G.<span class="brand-dot">•</span>
+  </a>
+
+  <nav class="nav">
+    <a class="active" href="../index.html#projects">Projects</a>
+    <a href="../index.html#about">About</a>
+    <a href="../index.html#timeline">Timeline</a>
+    <a href="../index.html#contact">Contact</a>
+  </nav>
+
+</header>
+
+<main>
+
+<section class="project-hero">
+
+  <a class="project-back" href="../index.html#projects">
+    ← Back to projects
+  </a>
+
+  <div class="project-kicker">
+    UNIPOP · AUDIO · WEB · CULTURE
+  </div>
+
+  <h1>
+    Lëtzebuerger Sprooch
+  </h1>
+
+  <p class="project-lead">
+    A dedicated digital experience combining podcast content
+    with selected UniPop courses around the Luxembourgish
+    language and culture.
+  </p>
+
+</section>
+
+
+<div class="project-cover">
+
+  <img
+    src="../assets/images/projects/letzebuerger-sprooch.jpg"
+    alt="Lëtzebuerger Sprooch">
+
+</div>
+
+
+<article class="project-content sprooch-content">
+
+<section>
+
+  <h2>
+    Overview
+  </h2>
+
+  <p>
+    Lëtzebuerger Sprooch is a dedicated web experience created
+    to bring together audio content and selected UniPop courses
+    around the Luxembourgish language and culture.
+  </p>
+
+  <p>
+    The page provides a central place where visitors can listen
+    to a featured podcast while also discovering related UniPop
+    courses directly within the same experience.
+  </p>
+
+  <p>
+    Instead of separating editorial audio content and course
+    promotion into different pages, the project combines both
+    elements in one visual and interactive interface.
+  </p>
+
+</section>
+
+
+<section>
+
+  <h2>
+    Project details
+  </h2>
+
+  <p>
+    The goal was to create a standalone themed page that could
+    be integrated into the existing UniPop website while allowing
+    more freedom in layout, audio playback and course presentation
+    than a standard WordPress content page.
+  </p>
+
+  <p>
+    The page is developed and hosted independently through GitHub
+    Pages. It is then embedded into the UniPop WordPress website
+    using an iframe.
+  </p>
+
+  <p>
+    This architecture makes it possible to design the complete
+    experience independently while still presenting it as part
+    of the official UniPop website.
+  </p>
+
+  <p>
+    A central element of the page is the integrated podcast.
+    Visitors can listen directly to the audio content while
+    additional sections present selected UniPop courses related
+    to Luxembourgish language, culture and the topic of the
+    featured episode.
+  </p>
+
+
+  <div class="detail-grid">
+
+    <div class="detail-card">
+      <h3>
+        Integrated podcast
+      </h3>
+      <p>
+        The page includes a dedicated audio experience allowing
+        visitors to listen to the featured podcast directly.
+      </p>
+    </div>
+
+
+    <div class="detail-card">
+      <h3>
+        Related courses
+      </h3>
+      <p>
+        Selected UniPop courses are presented alongside the audio
+        content to connect the editorial topic with further
+        learning opportunities.
+      </p>
+    </div>
+
+
+    <div class="detail-card">
+      <h3>
+        GitHub Pages
+      </h3>
+      <p>
+        The complete experience is developed and hosted independently
+        from the main WordPress installation.
+      </p>
+    </div>
+
+
+    <div class="detail-card">
+      <h3>
+        WordPress iframe
+      </h3>
+      <p>
+        The standalone page is integrated into the official UniPop
+        website using an iframe.
+      </p>
+    </div>
+
+
+    <div class="detail-card">
+      <h3>
+        Themed experience
+      </h3>
+      <p>
+        Audio, imagery and course content are combined into a single
+        presentation around Luxembourgish language and culture.
+      </p>
+    </div>
+
+
+    <div class="detail-card">
+      <h3>
+        Reusable concept
+      </h3>
+      <p>
+        The same architecture can be adapted to future podcast
+        episodes or other UniPop thematic content.
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+
+<section>
+
+  <h2>
+    Technology
+  </h2>
+
+  <p>
+    The Lëtzebuerger Sprooch page is built as a standalone
+    browser-based application using HTML, CSS and JavaScript.
+  </p>
+
+  <p>
+    GitHub Pages is used as the hosting platform, allowing the
+    complete experience to remain independent from the main
+    UniPop WordPress installation.
+  </p>
+
+  <p>
+    The finished page is embedded into WordPress through an iframe.
+    This approach provides full control over the visual design,
+    audio-player behaviour and interactive presentation while
+    still making the experience accessible from the official
+    UniPop website.
+  </p>
+
+  <p>
+    The page combines web-based audio playback with dynamic
+    presentation of related course content and can be adapted
+    for future themed productions.
+  </p>
+
+
+  <div class="tech-list">
+
+    <span class="tech-chip">GitHub Pages</span>
+    <span class="tech-chip">HTML</span>
+    <span class="tech-chip">CSS</span>
+    <span class="tech-chip">JavaScript</span>
+    <span class="tech-chip">WordPress</span>
+    <span class="tech-chip">iframe</span>
+    <span class="tech-chip">Audio Player</span>
+    <span class="tech-chip">Podcast</span>
+    <span class="tech-chip">Course Content</span>
+    <span class="tech-chip">Responsive Web UI</span>
+
+  </div>
+
+</section>
+
+
+<section>
+
+  <h2>
+    Media & demo
+  </h2>
+
+  <p>
+    The screenshots below can show the complete themed experience,
+    including the podcast player, the WordPress integration and
+    the presentation of selected Luxembourgish language courses.
+  </p>
+
+  <p>
+    The media can also demonstrate how the embedded page combines
+    editorial audio content and course discovery in a single
+    interface while maintaining the visual identity of the
+    surrounding UniPop website.
+  </p>
+
+
+  <div class="carousel-shell" data-carousel>
+
+    <div class="carousel-viewport">
+
+      <div class="carousel-track">
+
+        <figure class="carousel-slide">
+          <img
+            src="../assets/images/projects/sprooch/sprooch-01.jpg"
+            alt="Lëtzebuerger Sprooch landing page">
+        </figure>
+
+        <figure class="carousel-slide">
+          <img
+            src="../assets/images/projects/sprooch/sprooch-02.jpg"
+            alt="Lëtzebuerger Sprooch podcast player">
+        </figure>
+
+        <figure class="carousel-slide">
+          <img
+            src="../assets/images/projects/sprooch/sprooch-03.jpg"
+            alt="Lëtzebuerger Sprooch course presentation">
+        </figure>
+
+        <figure class="carousel-slide">
+          <img
+            src="../assets/images/projects/sprooch/sprooch-04.jpg"
+            alt="Lëtzebuerger Sprooch WordPress integration">
+        </figure>
+
+        <figure class="carousel-slide">
+          <img
+            src="../assets/images/projects/sprooch/sprooch-05.jpg"
+            alt="Lëtzebuerger Sprooch themed web experience">
+        </figure>
+
+        <figure class="carousel-slide">
+          <img
+            src="../assets/images/projects/sprooch/sprooch-06.jpg"
+            alt="Lëtzebuerger Sprooch responsive layout">
+        </figure>
+
+      </div>
+
+    </div>
+
+
+    <div class="carousel-nav">
+
+      <button
+        class="carousel-btn prev"
+        type="button"
+        aria-label="Previous screenshot">
+        ‹
+      </button>
+
+      <div
+        class="carousel-dots"
+        aria-label="Screenshot navigation">
+      </div>
+
+      <button
+        class="carousel-btn next"
+        type="button"
+        aria-label="Next screenshot">
+        ›
+      </button>
+
+    </div>
+
+
+    <p class="carousel-caption">
+      Lëtzebuerger Sprooch — project screenshots
+    </p>
+
+  </div>
+
+</section>
+
+</article>
+
+</main>
+
+
+<footer class="footer">
+
+  <span>
+    © Frank G. — My Projects
+  </span>
+
+  <span>
+    <a href="../index.html">
+      Back home
+    </a>
+  </span>
+
+</footer>
+
+</div>
+
+
+<script>
+
+(() => {
+
+  const carousel =
+    document.querySelector('[data-carousel]');
+
+  if(!carousel) return;
+
+  const track =
+    carousel.querySelector('.carousel-track');
+
+  const slides =
+    [...carousel.querySelectorAll('.carousel-slide')];
+
+  const dotsWrap =
+    carousel.querySelector('.carousel-dots');
+
+  const prev =
+    carousel.querySelector('.prev');
+
+  const next =
+    carousel.querySelector('.next');
+
+  let index = 0;
+
+
+  const dots =
+    slides.map((_,i)=>{
+
+      const dot =
+        document.createElement('button');
+
+      dot.className =
+        'carousel-dot';
+
+      dot.type =
+        'button';
+
+      dot.setAttribute(
+        'aria-label',
+        `Show screenshot ${i+1}`
+      );
+
+      dot.addEventListener(
+        'click',
+        ()=>goTo(i)
+      );
+
+      dotsWrap.appendChild(dot);
+
+      return dot;
+
+    });
+
+
+  function goTo(i){
+
+    index =
+      (i + slides.length)
+      % slides.length;
+
+    track.style.transform =
+      `translateX(-${index*100}%)`;
+
+    dots.forEach(
+      (dot,dotIndex)=>{
+
+        dot.classList.toggle(
+          'active',
+          dotIndex===index
+        );
+
+      }
+    );
+
+  }
+
+
+  prev.addEventListener(
+    'click',
+    ()=>goTo(index-1)
+  );
+
+
+  next.addEventListener(
+    'click',
+    ()=>goTo(index+1)
+  );
+
+
+  let startX=null;
+
+
+  carousel.addEventListener(
+    'touchstart',
+    e=>{
+
+      startX =
+        e.touches[0].clientX;
+
+    },
+    {passive:true}
+  );
+
+
+  carousel.addEventListener(
+    'touchend',
+    e=>{
+
+      if(startX===null)
+        return;
+
+      const delta =
+        e.changedTouches[0].clientX
+        - startX;
+
+      if(Math.abs(delta)>45){
+
+        goTo(
+          index +
+          (delta<0 ? 1 : -1)
+        );
+
+      }
+
+      startX=null;
+
+    },
+    {passive:true}
+  );
+
+
+  goTo(0);
+
+})();
+
+</script>
+
+</body>
+</html>
