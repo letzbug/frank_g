@@ -1,1 +1,714 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#050813"><title>UniPop VR — Frank G.</title><link rel="stylesheet" href="../assets/css/style.css"><link rel="stylesheet" href="../assets/css/project.css"></head><body><div class="site-shell"><header class="topbar"><a class="brand" href="../index.html">FRANK G.<span class="brand-dot">•</span></a><nav class="nav"><a class="active" href="../index.html#projects">Projects</a><a href="../index.html#about">About</a><a href="../index.html#timeline">Timeline</a><a href="../index.html#contact">Contact</a></nav></header><main><section class="project-hero"><a class="project-back" href="../index.html#projects">← Back to projects</a><div class="project-kicker">UNIPOP · VR · INTERACTIVE</div><h1>UniPop VR</h1><p class="project-lead">Virtual-reality experiments and concepts for immersive learning and future UniPop experiences.</p></section><div class="project-cover"><img src="../assets/images/projects/unipop-vr.jpg" alt="UniPop VR"></div><article class="project-content"><p class="edit-note">This page is ready for your own project content. Replace the image and edit this HTML whenever you want.</p><section><h2>Overview</h2><p>Virtual-reality experiments and concepts for immersive learning and future UniPop experiences.</p></section><section><h2>Project details</h2><p>Add screenshots, the story behind the project, your contribution, technologies, results and future ideas here.</p></section><section><h2>Media & demo</h2><p>This section can contain additional images, video, GitHub links or an embedded live project.</p></section></article></main><footer class="footer"><span>© Frank G. — My Projects</span><span><a href="../index.html">Back home</a></span></footer></div></body></html>
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#050813">
+
+  <title>UniPop VR — Frank G.</title>
+
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/project.css">
+
+  <style>
+
+    .vr-content{
+      display:block;
+      max-width:980px;
+      margin:44px auto 0;
+    }
+
+    .vr-content>section{
+      margin:0 0 48px;
+    }
+
+    .vr-content h2{
+      margin-bottom:14px;
+    }
+
+    .vr-content p{
+      line-height:1.75;
+      color:#b8c0d3;
+    }
+
+    .detail-grid{
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:18px;
+      margin-top:24px;
+    }
+
+    .detail-card{
+      padding:22px;
+      border:1px solid rgba(255,255,255,.09);
+      border-radius:18px;
+      background:
+        linear-gradient(
+          180deg,
+          rgba(255,255,255,.035),
+          rgba(255,255,255,.018)
+        );
+    }
+
+    .detail-card h3{
+      margin:0 0 8px;
+      font-size:1rem;
+      color:#fff;
+    }
+
+    .detail-card p{
+      margin:0;
+      font-size:.96rem;
+    }
+
+    .tech-list{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:20px;
+    }
+
+    .tech-chip{
+      padding:9px 12px;
+      border:1px solid rgba(139,92,246,.28);
+      border-radius:999px;
+      background:rgba(109,74,255,.08);
+      color:#c9b8ff;
+      font-size:.86rem;
+      font-weight:700;
+      letter-spacing:.04em;
+    }
+
+    /* MEDIA CAROUSEL */
+
+    .carousel-shell{
+      position:relative;
+      width:min(1520px,calc(100vw - 56px));
+      margin:26px 0 0 50%;
+      transform:translateX(-50%);
+      padding:16px;
+      border:1px solid rgba(255,255,255,.09);
+      border-radius:22px;
+      background:rgba(255,255,255,.018);
+      overflow:hidden;
+    }
+
+    .carousel-viewport{
+      width:100%;
+      overflow:hidden;
+      border-radius:16px;
+      background:#050813;
+    }
+
+    .carousel-track{
+      display:flex;
+      width:100%;
+      transition:transform .45s cubic-bezier(.2,.75,.2,1);
+    }
+
+    .carousel-slide{
+      flex:0 0 100%;
+      width:100%;
+      margin:0;
+      padding:0;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      overflow:hidden;
+      aspect-ratio:16 / 9;
+      background:#050813;
+    }
+
+    .carousel-slide img{
+      display:block;
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      object-position:center;
+      margin:0;
+      padding:0;
+    }
+
+    .carousel-nav{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      margin-top:14px;
+    }
+
+    .carousel-dots{
+      display:flex;
+      flex:1;
+      flex-wrap:wrap;
+      justify-content:center;
+      gap:8px;
+    }
+
+    .carousel-dot{
+      width:9px;
+      height:9px;
+      padding:0;
+      border:none;
+      border-radius:50%;
+      background:#465068;
+      cursor:pointer;
+    }
+
+    .carousel-dot.active{
+      background:#8b5cf6;
+      box-shadow:0 0 0 4px rgba(139,92,246,.12);
+    }
+
+    .carousel-btn{
+      width:44px;
+      height:44px;
+      border-radius:12px;
+      border:1px solid rgba(255,255,255,.12);
+      background:rgba(255,255,255,.04);
+      color:#fff;
+      font-size:1.25rem;
+      cursor:pointer;
+    }
+
+    .carousel-btn:hover{
+      background:rgba(139,92,246,.14);
+      border-color:rgba(139,92,246,.38);
+    }
+
+    .carousel-caption{
+      margin:12px 0 0;
+      text-align:center;
+      color:#8f9ab0;
+      font-size:.9rem;
+    }
+
+    @media(max-width:760px){
+
+      .detail-grid{
+        grid-template-columns:1fr;
+      }
+
+      .vr-content{
+        margin-top:30px;
+      }
+
+      .vr-content>section{
+        margin-bottom:38px;
+      }
+
+      .carousel-shell{
+        width:calc(100vw - 24px);
+        padding:10px;
+      }
+
+    }
+
+  </style>
+</head>
+
+<body>
+
+<div class="site-shell">
+
+<header class="topbar">
+
+  <a class="brand" href="../index.html">
+    FRANK G.<span class="brand-dot">•</span>
+  </a>
+
+  <nav class="nav">
+    <a class="active" href="../index.html#projects">Projects</a>
+    <a href="../index.html#about">About</a>
+    <a href="../index.html#timeline">Timeline</a>
+    <a href="../index.html#contact">Contact</a>
+  </nav>
+
+</header>
+
+<main>
+
+<section class="project-hero">
+
+  <a class="project-back" href="../index.html#projects">
+    ← Back to projects
+  </a>
+
+  <div class="project-kicker">
+    UNIPOP · VR · UNITY · IMMERSIVE
+  </div>
+
+  <h1>
+    UniPop VR
+  </h1>
+
+  <p class="project-lead">
+    An immersive Unity-based VR experience that allows visitors
+    to discover UniPop courses by virtually stepping directly
+    into a real training session.
+  </p>
+
+</section>
+
+
+<div class="project-cover">
+
+  <img
+    src="../assets/images/projects/unipop-vr.jpg"
+    alt="UniPop VR">
+
+</div>
+
+
+<article class="project-content vr-content">
+
+<section>
+
+  <h2>
+    Overview
+  </h2>
+
+  <p>
+    UniPop VR is an ongoing virtual-reality project designed to
+    present UniPop courses in a much more immersive way than a
+    traditional catalogue, poster or video presentation.
+  </p>
+
+  <p>
+    The concept is intended especially for fairs, exhibitions and
+    public presentations. Visitors put on a VR headset, select a
+    course they are interested in and are transported directly
+    into an immersive recording of that course.
+  </p>
+
+  <p>
+    Instead of simply reading what a course is about, the visitor
+    gets the impression of being physically present in the room
+    and can experience how a real UniPop course could feel.
+  </p>
+
+</section>
+
+
+<section>
+
+  <h2>
+    Project details
+  </h2>
+
+  <p>
+    The objective of the project is to make the UniPop course
+    catalogue more tangible and experiential. Course descriptions
+    are useful, but they cannot fully communicate the atmosphere,
+    teaching style, group interaction or physical environment of
+    a real training session.
+  </p>
+
+  <p>
+    UniPop VR addresses this by combining an interactive Unity
+    interface with immersive video recordings. After putting on
+    the headset, the visitor enters a virtual selection environment
+    where different UniPop courses can be explored.
+  </p>
+
+  <p>
+    Once a course is selected, the experience switches into an
+    immersive video recorded inside the actual course environment.
+    The viewer can look around naturally and experience the room,
+    trainer and participants from a first-person perspective.
+  </p>
+
+  <p>
+    The project is especially suited to trade fairs and UniPop
+    promotional events, where a limited physical booth can become
+    a gateway to many different course locations and learning
+    experiences.
+  </p>
+
+
+  <div class="detail-grid">
+
+    <div class="detail-card">
+      <h3>
+        Course selection in VR
+      </h3>
+      <p>
+        Visitors can browse and select different UniPop courses
+        directly from an interactive virtual environment.
+      </p>
+    </div>
+
+
+    <div class="detail-card">
+      <h3>
+        Immersive course videos
+      </h3>
+      <p>
+        Selected courses are presented through immersive video,
+        allowing the viewer to feel present inside the training room.
+      </p>
+    </div>
+
+
+    <div class="detail-card">
+      <h3>
+        Unity interface
+      </h3>
+      <p>
+        Unity provides the interactive VR environment, navigation
+        and course-selection logic.
+      </p>
+    </div>
+
+
+    <div class="detail-card">
+      <h3>
+        Real course atmosphere
+      </h3>
+      <p>
+        The experience communicates more than information by showing
+        the actual room, trainer, group and teaching environment.
+      </p>
+    </div>
+
+
+    <div class="detail-card">
+      <h3>
+        Event & fair use
+      </h3>
+      <p>
+        The concept is designed for exhibitions, fairs and public
+        events where visitors can discover UniPop through a headset.
+      </p>
+    </div>
+
+
+    <div class="detail-card">
+      <h3>
+        Scalable course library
+      </h3>
+      <p>
+        Additional immersive course recordings can be added over
+        time, turning the application into a growing virtual course
+        showcase.
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+
+<section>
+
+  <h2>
+    Technology
+  </h2>
+
+  <p>
+    UniPop VR is being developed in Unity, which provides the
+    virtual environment, interaction system and headset integration.
+  </p>
+
+  <p>
+    The project combines a 3D user interface with immersive video
+    content. Unity manages the course-selection experience and then
+    loads the corresponding immersive media once the visitor selects
+    a course.
+  </p>
+
+  <p>
+    The solution is designed for standalone VR use at fairs and
+    events, allowing the experience to run directly from a headset
+    without requiring the visitor to interact with a conventional
+    computer interface.
+  </p>
+
+
+  <div class="tech-list">
+
+    <span class="tech-chip">Unity</span>
+    <span class="tech-chip">Virtual Reality</span>
+    <span class="tech-chip">Immersive Video</span>
+    <span class="tech-chip">360° Media</span>
+    <span class="tech-chip">Interactive UI</span>
+    <span class="tech-chip">VR Headset</span>
+    <span class="tech-chip">C#</span>
+    <span class="tech-chip">Spatial Experience</span>
+    <span class="tech-chip">Event Technology</span>
+    <span class="tech-chip">Immersive Learning</span>
+
+  </div>
+
+</section>
+
+
+<section>
+
+  <h2>
+    Media & demo
+  </h2>
+
+  <p>
+    The screenshots below can show the complete UniPop VR experience:
+    the Unity development environment, the virtual course-selection
+    interface, headset testing and examples of immersive course
+    recordings.
+  </p>
+
+  <p>
+    The media can also demonstrate the transition from the virtual
+    menu into the actual course experience and show how visitors at
+    an event can explore several different UniPop courses from a
+    single VR station.
+  </p>
+
+
+  <div class="carousel-shell" data-carousel>
+
+    <div class="carousel-viewport">
+
+      <div class="carousel-track">
+
+        <figure class="carousel-slide">
+          <img
+            src="../assets/images/projects/vr/vr-01.jpg"
+            alt="UniPop VR Unity environment">
+        </figure>
+
+
+        <figure class="carousel-slide">
+          <img
+            src="../assets/images/projects/vr/vr-02.jpg"
+            alt="UniPop VR course selection">
+        </figure>
+
+
+        <figure class="carousel-slide">
+          <img
+            src="../assets/images/projects/vr/vr-03.jpg"
+            alt="UniPop VR immersive course video">
+        </figure>
+
+
+        <figure class="carousel-slide">
+          <img
+            src="../assets/images/projects/vr/vr-04.jpg"
+            alt="UniPop VR headset testing">
+        </figure>
+
+
+        <figure class="carousel-slide">
+          <img
+            src="../assets/images/projects/vr/vr-05.jpg"
+            alt="UniPop VR immersive classroom">
+        </figure>
+
+
+        <figure class="carousel-slide">
+          <img
+            src="../assets/images/projects/vr/vr-06.jpg"
+            alt="UniPop VR event demonstration">
+        </figure>
+
+      </div>
+
+    </div>
+
+
+    <div class="carousel-nav">
+
+      <button
+        class="carousel-btn prev"
+        type="button"
+        aria-label="Previous screenshot">
+        ‹
+      </button>
+
+      <div
+        class="carousel-dots"
+        aria-label="Screenshot navigation">
+      </div>
+
+      <button
+        class="carousel-btn next"
+        type="button"
+        aria-label="Next screenshot">
+        ›
+      </button>
+
+    </div>
+
+
+    <p class="carousel-caption">
+      UniPop VR — project screenshots
+    </p>
+
+  </div>
+
+</section>
+
+</article>
+
+</main>
+
+
+<footer class="footer">
+
+  <span>
+    © Frank G. — My Projects
+  </span>
+
+  <span>
+    <a href="../index.html">
+      Back home
+    </a>
+  </span>
+
+</footer>
+
+</div>
+
+
+<script>
+
+(() => {
+
+  const carousel =
+    document.querySelector('[data-carousel]');
+
+  if(!carousel) return;
+
+  const track =
+    carousel.querySelector('.carousel-track');
+
+  const slides =
+    [...carousel.querySelectorAll('.carousel-slide')];
+
+  const dotsWrap =
+    carousel.querySelector('.carousel-dots');
+
+  const prev =
+    carousel.querySelector('.prev');
+
+  const next =
+    carousel.querySelector('.next');
+
+  let index = 0;
+
+
+  const dots =
+    slides.map((_,i)=>{
+
+      const dot =
+        document.createElement('button');
+
+      dot.className =
+        'carousel-dot';
+
+      dot.type =
+        'button';
+
+      dot.setAttribute(
+        'aria-label',
+        `Show screenshot ${i+1}`
+      );
+
+      dot.addEventListener(
+        'click',
+        ()=>goTo(i)
+      );
+
+      dotsWrap.appendChild(dot);
+
+      return dot;
+
+    });
+
+
+  function goTo(i){
+
+    index =
+      (i + slides.length)
+      % slides.length;
+
+    track.style.transform =
+      `translateX(-${index*100}%)`;
+
+    dots.forEach(
+      (dot,dotIndex)=>{
+
+        dot.classList.toggle(
+          'active',
+          dotIndex===index
+        );
+
+      }
+    );
+
+  }
+
+
+  prev.addEventListener(
+    'click',
+    ()=>goTo(index-1)
+  );
+
+
+  next.addEventListener(
+    'click',
+    ()=>goTo(index+1)
+  );
+
+
+  let startX=null;
+
+
+  carousel.addEventListener(
+    'touchstart',
+    e=>{
+
+      startX =
+        e.touches[0].clientX;
+
+    },
+    {passive:true}
+  );
+
+
+  carousel.addEventListener(
+    'touchend',
+    e=>{
+
+      if(startX===null)
+        return;
+
+      const delta =
+        e.changedTouches[0].clientX
+        - startX;
+
+      if(Math.abs(delta)>45){
+
+        goTo(
+          index +
+          (delta<0 ? 1 : -1)
+        );
+
+      }
+
+      startX=null;
+
+    },
+    {passive:true}
+  );
+
+
+  goTo(0);
+
+})();
+
+</script>
+
+</body>
+</html>
