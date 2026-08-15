@@ -1,1 +1,1014 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#050813"><title>Frank&#x27;s Magic — Frank G.</title><link rel="stylesheet" href="../assets/css/style.css"><link rel="stylesheet" href="../assets/css/project.css"></head><body><div class="site-shell"><header class="topbar"><a class="brand" href="../index.html">FRANK G.<span class="brand-dot">•</span></a><nav class="nav"><a class="active" href="../index.html#projects">Projects</a><a href="../index.html#about">About</a><a href="../index.html#timeline">Timeline</a><a href="../index.html#contact">Contact</a></nav></header><main><section class="project-hero"><a class="project-back" href="../index.html#projects">← Back to projects</a><div class="project-kicker">UNIPOP · WEB · TOOL</div><h1>Frank&#x27;s Magic</h1><p class="project-lead">A flexible UniPop web tool for presenting and managing course-related information.</p></section><div class="project-cover"><img src="../assets/images/projects/franks-magic.jpg" alt="Frank&#x27;s Magic"></div><article class="project-content"><p class="edit-note">This page is ready for your own project content. Replace the image and edit this HTML whenever you want.</p><section><h2>Overview</h2><p>A flexible UniPop web tool for presenting and managing course-related information.</p></section><section><h2>Project details</h2><p>Add screenshots, the story behind the project, your contribution, technologies, results and future ideas here.</p></section><section><h2>Media & demo</h2><p>This section can contain additional images, video, GitHub links or an embedded live project.</p></section></article></main><footer class="footer"><span>© Frank G. — My Projects</span><span><a href="../index.html">Back home</a></span></footer></div></body></html>
+<!doctype html>
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#050813">
+
+<title>Frank's Magic — Frank G.</title>
+
+<link rel="stylesheet" href="../assets/css/style.css">
+<link rel="stylesheet" href="../assets/css/project.css">
+
+<style>
+
+.magic-content{
+  display:block;
+  max-width:980px;
+  margin:44px auto 0;
+}
+
+.magic-content>section{
+  margin:0 0 48px;
+}
+
+.magic-content h2{
+  margin-bottom:14px;
+}
+
+.magic-content p{
+  line-height:1.75;
+  color:#b8c0d3;
+}
+
+
+/* PROJECT DETAIL CARDS */
+
+.detail-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:18px;
+  margin-top:24px;
+}
+
+.detail-card{
+  padding:22px;
+  border:1px solid rgba(255,255,255,.09);
+  border-radius:18px;
+
+  background:
+  linear-gradient(
+    180deg,
+    rgba(255,255,255,.035),
+    rgba(255,255,255,.018)
+  );
+}
+
+.detail-card h3{
+  margin:0 0 8px;
+  font-size:1rem;
+  color:#fff;
+}
+
+.detail-card p{
+  margin:0;
+  font-size:.96rem;
+}
+
+
+/* TECHNOLOGY */
+
+.tech-list{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top:20px;
+}
+
+.tech-chip{
+  padding:9px 12px;
+
+  border:
+  1px solid rgba(139,92,246,.28);
+
+  border-radius:999px;
+
+  background:
+  rgba(109,74,255,.08);
+
+  color:#c9b8ff;
+
+  font-size:.86rem;
+  font-weight:700;
+
+  letter-spacing:.04em;
+}
+
+
+/* =====================================
+   MEDIA CAROUSEL
+   Images: 1600 x 900 px
+   ===================================== */
+
+.carousel-shell{
+
+  position:relative;
+
+  width:min(
+    1520px,
+    calc(100vw - 56px)
+  );
+
+  margin:26px 0 0 50%;
+
+  transform:
+  translateX(-50%);
+
+  padding:16px;
+
+  border:
+  1px solid rgba(255,255,255,.09);
+
+  border-radius:22px;
+
+  background:
+  rgba(255,255,255,.018);
+
+  overflow:hidden;
+}
+
+
+.carousel-viewport{
+
+  width:100%;
+
+  overflow:hidden;
+
+  border-radius:16px;
+
+  background:#050813;
+}
+
+
+.carousel-track{
+
+  display:flex;
+
+  width:100%;
+
+  transition:
+  transform .45s
+  cubic-bezier(.2,.75,.2,1);
+}
+
+
+.carousel-slide{
+
+  flex:0 0 100%;
+
+  width:100%;
+
+  margin:0;
+  padding:0;
+
+  display:flex;
+
+  align-items:center;
+  justify-content:center;
+
+  overflow:hidden;
+
+  aspect-ratio:16 / 9;
+
+  background:#050813;
+}
+
+
+.carousel-slide img{
+
+  display:block;
+
+  width:100%;
+  height:100%;
+
+  object-fit:cover;
+  object-position:center;
+
+  margin:0;
+  padding:0;
+}
+
+
+.carousel-nav{
+
+  display:flex;
+
+  align-items:center;
+  justify-content:space-between;
+
+  gap:16px;
+
+  margin-top:14px;
+}
+
+
+.carousel-dots{
+
+  display:flex;
+
+  flex:1;
+
+  flex-wrap:wrap;
+
+  justify-content:center;
+
+  gap:8px;
+}
+
+
+.carousel-dot{
+
+  width:9px;
+  height:9px;
+
+  padding:0;
+
+  border:none;
+
+  border-radius:50%;
+
+  background:#465068;
+
+  cursor:pointer;
+}
+
+
+.carousel-dot.active{
+
+  background:#8b5cf6;
+
+  box-shadow:
+  0 0 0 4px
+  rgba(139,92,246,.12);
+}
+
+
+.carousel-btn{
+
+  width:44px;
+  height:44px;
+
+  border-radius:12px;
+
+  border:
+  1px solid rgba(255,255,255,.12);
+
+  background:
+  rgba(255,255,255,.04);
+
+  color:#fff;
+
+  font-size:1.25rem;
+
+  cursor:pointer;
+}
+
+
+.carousel-btn:hover{
+
+  background:
+  rgba(139,92,246,.14);
+
+  border-color:
+  rgba(139,92,246,.38);
+}
+
+
+.carousel-caption{
+
+  margin:12px 0 0;
+
+  text-align:center;
+
+  color:#8f9ab0;
+
+  font-size:.9rem;
+}
+
+
+/* MOBILE */
+
+@media(max-width:760px){
+
+  .detail-grid{
+    grid-template-columns:1fr;
+  }
+
+  .magic-content{
+    margin-top:30px;
+  }
+
+  .magic-content>section{
+    margin-bottom:38px;
+  }
+
+  .carousel-shell{
+
+    width:
+    calc(100vw - 24px);
+
+    padding:10px;
+  }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+<div class="site-shell">
+
+
+<header class="topbar">
+
+<a
+class="brand"
+href="../index.html">
+
+FRANK G.<span class="brand-dot">•</span>
+
+</a>
+
+
+<nav class="nav">
+
+<a
+class="active"
+href="../index.html#projects">
+Projects
+</a>
+
+<a href="../index.html#about">
+About
+</a>
+
+<a href="../index.html#timeline">
+Timeline
+</a>
+
+<a href="../index.html#contact">
+Contact
+</a>
+
+</nav>
+
+</header>
+
+
+
+<main>
+
+
+<section class="project-hero">
+
+<a
+class="project-back"
+href="../index.html#projects">
+
+← Back to projects
+
+</a>
+
+
+<div class="project-kicker">
+
+UNIPOP · WEB · TOOL
+
+</div>
+
+
+<h1>
+
+Frank's Magic
+
+</h1>
+
+
+<p class="project-lead">
+
+A custom UniPop web tool designed to search,
+explore and reuse course information from the
+central course data source.
+
+</p>
+
+</section>
+
+
+
+<div class="project-cover">
+
+<img
+src="../assets/images/projects/franks-magic.jpg"
+alt="Frank's Magic">
+
+</div>
+
+
+
+<article class="project-content magic-content">
+
+
+<!-- OVERVIEW -->
+
+<section>
+
+<h2>
+Overview
+</h2>
+
+<p>
+
+Frank's Magic is a browser-based tool created to make
+UniPop course information easier and faster to access.
+
+</p>
+
+<p>
+
+Instead of searching manually through different systems
+or individual course pages, the application provides a
+central interface for exploring the available course data
+and quickly finding the information required for other
+UniPop projects and communication tools.
+
+</p>
+
+</section>
+
+
+
+<!-- PROJECT DETAILS -->
+
+<section>
+
+<h2>
+Project details
+</h2>
+
+<p>
+
+The project started from a practical need: UniPop manages
+a large and continuously changing catalogue of courses.
+Information such as course titles, descriptions, dates,
+locations, categories and other details is used repeatedly
+across different communication channels and internal tools.
+
+</p>
+
+<p>
+
+Frank's Magic provides a faster way to access this
+information through a dedicated web interface. Course data
+can be searched, filtered and displayed without manually
+opening individual course pages.
+
+</p>
+
+<p>
+
+The tool also acts as a useful bridge between the central
+course data and several other projects. By providing
+structured access to course information, the same data can
+be reused for applications such as newsletters, digital
+signage and other UniPop communication workflows.
+
+</p>
+
+
+<div class="detail-grid">
+
+
+<div class="detail-card">
+
+<h3>
+Central course access
+</h3>
+
+<p>
+
+Course information is brought together in one interface,
+making it easier to explore the current UniPop catalogue.
+
+</p>
+
+</div>
+
+
+
+<div class="detail-card">
+
+<h3>
+Fast search
+</h3>
+
+<p>
+
+Courses can be located quickly without manually browsing
+through individual pages or administrative systems.
+
+</p>
+
+</div>
+
+
+
+<div class="detail-card">
+
+<h3>
+Filtering
+</h3>
+
+<p>
+
+Structured course data makes it possible to filter and
+identify relevant courses according to the information
+available in the data source.
+
+</p>
+
+</div>
+
+
+
+<div class="detail-card">
+
+<h3>
+Reusable data
+</h3>
+
+<p>
+
+Course information can be reused by other UniPop tools
+instead of manually recreating the same content.
+
+</p>
+
+</div>
+
+
+
+<div class="detail-card">
+
+<h3>
+Browser based
+</h3>
+
+<p>
+
+The application works directly in a modern browser and
+does not require locally installed software.
+
+</p>
+
+</div>
+
+
+
+<div class="detail-card">
+
+<h3>
+Shared data source
+</h3>
+
+<p>
+
+Using structured course data provides a common foundation
+for several independent UniPop digital projects.
+
+</p>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+
+<!-- TECHNOLOGY -->
+
+<section>
+
+<h2>
+Technology
+</h2>
+
+<p>
+
+Frank's Magic is built as a lightweight web application
+using HTML, CSS and JavaScript. The frontend provides the
+search, filtering and presentation interface while
+structured course data supplies the information displayed
+by the application.
+
+</p>
+
+<p>
+
+The project is designed around reusable web technologies
+and structured data rather than a traditional locally
+installed application. This makes the tool easy to update
+and allows the same course information to be integrated
+into additional UniPop projects.
+
+</p>
+
+<p>
+
+The data-driven architecture is particularly useful for
+projects that need access to the latest course information,
+such as newsletter creation, digital signage and other
+communication tools.
+
+</p>
+
+
+<div class="tech-list">
+
+<span class="tech-chip">
+GitHub Pages
+</span>
+
+<span class="tech-chip">
+JavaScript
+</span>
+
+<span class="tech-chip">
+HTML
+</span>
+
+<span class="tech-chip">
+CSS
+</span>
+
+<span class="tech-chip">
+JSON
+</span>
+
+<span class="tech-chip">
+Course Data
+</span>
+
+<span class="tech-chip">
+Search & Filtering
+</span>
+
+<span class="tech-chip">
+Dynamic Content
+</span>
+
+<span class="tech-chip">
+Responsive Web UI
+</span>
+
+</div>
+
+</section>
+
+
+
+<!-- MEDIA -->
+
+<section>
+
+<h2>
+Media & demo
+</h2>
+
+<p>
+
+The screenshots below show Frank's Magic in use,
+including the course data interface, search and filtering
+functions and the presentation of individual course
+information.
+
+</p>
+
+<p>
+
+The examples also demonstrate how structured UniPop course
+data can be transformed into a practical interface and
+reused as the foundation for additional digital tools.
+
+</p>
+
+
+
+<div
+class="carousel-shell"
+data-carousel>
+
+
+<div class="carousel-viewport">
+
+<div class="carousel-track">
+
+
+<figure class="carousel-slide">
+
+<img
+src="../assets/images/projects/magic/magic-01.jpg"
+alt="Frank's Magic screenshot 1">
+
+</figure>
+
+
+
+<figure class="carousel-slide">
+
+<img
+src="../assets/images/projects/magic/magic-02.jpg"
+alt="Frank's Magic screenshot 2">
+
+</figure>
+
+
+
+<figure class="carousel-slide">
+
+<img
+src="../assets/images/projects/magic/magic-03.jpg"
+alt="Frank's Magic screenshot 3">
+
+</figure>
+
+
+
+<figure class="carousel-slide">
+
+<img
+src="../assets/images/projects/magic/magic-04.jpg"
+alt="Frank's Magic screenshot 4">
+
+</figure>
+
+
+
+<figure class="carousel-slide">
+
+<img
+src="../assets/images/projects/magic/magic-05.jpg"
+alt="Frank's Magic screenshot 5">
+
+</figure>
+
+
+
+<figure class="carousel-slide">
+
+<img
+src="../assets/images/projects/magic/magic-06.jpg"
+alt="Frank's Magic screenshot 6">
+
+</figure>
+
+
+</div>
+
+</div>
+
+
+
+<div class="carousel-nav">
+
+
+<button
+class="carousel-btn prev"
+type="button"
+aria-label="Previous screenshot">
+
+‹
+
+</button>
+
+
+<div
+class="carousel-dots"
+aria-label="Screenshot navigation">
+</div>
+
+
+<button
+class="carousel-btn next"
+type="button"
+aria-label="Next screenshot">
+
+›
+
+</button>
+
+
+</div>
+
+
+<p class="carousel-caption">
+
+Frank's Magic — project screenshots
+
+</p>
+
+
+</div>
+
+</section>
+
+
+</article>
+
+</main>
+
+
+
+<footer class="footer">
+
+<span>
+© Frank G. — My Projects
+</span>
+
+<span>
+
+<a href="../index.html">
+Back home
+</a>
+
+</span>
+
+</footer>
+
+
+</div>
+
+
+
+<script>
+
+(() => {
+
+const carousel =
+document.querySelector('[data-carousel]');
+
+if(!carousel) return;
+
+
+const track =
+carousel.querySelector('.carousel-track');
+
+
+const slides =
+[
+...carousel.querySelectorAll(
+'.carousel-slide'
+)
+];
+
+
+const dotsWrap =
+carousel.querySelector(
+'.carousel-dots'
+);
+
+
+const prev =
+carousel.querySelector('.prev');
+
+
+const next =
+carousel.querySelector('.next');
+
+
+let index = 0;
+
+
+
+const dots =
+slides.map((_,i)=>{
+
+const dot =
+document.createElement(
+'button'
+);
+
+dot.className =
+'carousel-dot';
+
+dot.type =
+'button';
+
+dot.setAttribute(
+'aria-label',
+`Show screenshot ${i+1}`
+);
+
+
+dot.addEventListener(
+'click',
+()=>goTo(i)
+);
+
+
+dotsWrap.appendChild(dot);
+
+return dot;
+
+});
+
+
+
+function goTo(i){
+
+index =
+(i + slides.length)
+% slides.length;
+
+
+track.style.transform =
+`translateX(-${index*100}%)`;
+
+
+dots.forEach(
+(dot,dotIndex)=>{
+
+dot.classList.toggle(
+'active',
+dotIndex===index
+);
+
+});
+
+}
+
+
+
+prev.addEventListener(
+'click',
+()=>goTo(index-1)
+);
+
+
+next.addEventListener(
+'click',
+()=>goTo(index+1)
+);
+
+
+
+let startX=null;
+
+
+carousel.addEventListener(
+'touchstart',
+e=>{
+
+startX =
+e.touches[0].clientX;
+
+},
+{passive:true}
+);
+
+
+carousel.addEventListener(
+'touchend',
+e=>{
+
+if(startX===null)
+return;
+
+
+const delta =
+e.changedTouches[0].clientX
+-startX;
+
+
+if(Math.abs(delta)>45){
+
+goTo(
+index +
+(delta<0 ? 1 : -1)
+);
+
+}
+
+
+startX=null;
+
+},
+{passive:true}
+);
+
+
+goTo(0);
+
+})();
+
+</script>
+
+
+</body>
+</html>
