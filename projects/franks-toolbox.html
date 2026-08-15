@@ -1,1 +1,783 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#050813"><title>Frank&#x27;s Toolbox — Frank G.</title><link rel="stylesheet" href="../assets/css/style.css"><link rel="stylesheet" href="../assets/css/project.css"></head><body><div class="site-shell"><header class="topbar"><a class="brand" href="../index.html">FRANK G.<span class="brand-dot">•</span></a><nav class="nav"><a class="active" href="../index.html#projects">Projects</a><a href="../index.html#about">About</a><a href="../index.html#timeline">Timeline</a><a href="../index.html#contact">Contact</a></nav></header><main><section class="project-hero"><a class="project-back" href="../index.html#projects">← Back to projects</a><div class="project-kicker">TOOLS · AUDIO · IFEN</div><h1>Frank&#x27;s Toolbox</h1><p class="project-lead">A practical audio toolbox developed for IFEN workflows and everyday production tasks.</p></section><div class="project-cover"><img src="../assets/images/projects/franks-toolbox.svg" alt="Frank&#x27;s Toolbox"></div><article class="project-content"><p class="edit-note">This page is ready for your own project content. Replace the image and edit this HTML whenever you want.</p><section><h2>Overview</h2><p>A practical audio toolbox developed for IFEN workflows and everyday production tasks.</p></section><section><h2>Project details</h2><p>Add screenshots, the story behind the project, your contribution, technologies, results and future ideas here.</p></section><section><h2>Media & demo</h2><p>This section can contain additional images, video, GitHub links or an embedded live project.</p></section></article></main><footer class="footer"><span>© Frank G. — My Projects</span><span><a href="../index.html">Back home</a></span></footer></div></body></html>
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#050813">
+
+  <title>Frank's Toolbox — Frank G.</title>
+
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/project.css">
+
+  <style>
+
+    .toolbox-content{
+      display:block;
+      max-width:980px;
+      margin:44px auto 0;
+    }
+
+    .toolbox-content>section{
+      margin:0 0 48px;
+    }
+
+    .toolbox-content h2{
+      margin-bottom:14px;
+    }
+
+    .toolbox-content p{
+      line-height:1.75;
+      color:#b8c0d3;
+    }
+
+    .detail-grid{
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:18px;
+      margin-top:24px;
+    }
+
+    .detail-card{
+      padding:22px;
+      border:1px solid rgba(255,255,255,.09);
+      border-radius:18px;
+      background:
+        linear-gradient(
+          180deg,
+          rgba(255,255,255,.035),
+          rgba(255,255,255,.018)
+        );
+    }
+
+    .detail-card h3{
+      margin:0 0 8px;
+      font-size:1rem;
+      color:#fff;
+    }
+
+    .detail-card p{
+      margin:0;
+      font-size:.96rem;
+    }
+
+    .tech-list{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:20px;
+    }
+
+    .tech-chip{
+      padding:9px 12px;
+      border:1px solid rgba(139,92,246,.28);
+      border-radius:999px;
+      background:rgba(109,74,255,.08);
+      color:#c9b8ff;
+      font-size:.86rem;
+      font-weight:700;
+      letter-spacing:.04em;
+    }
+
+    /* =====================================
+       MEDIA CAROUSEL
+       Images: 1600 x 900 px / 16:9
+       ===================================== */
+
+    .carousel-shell{
+      position:relative;
+      width:min(1520px,calc(100vw - 56px));
+      margin:26px 0 0 50%;
+      transform:translateX(-50%);
+      padding:16px;
+      border:1px solid rgba(255,255,255,.09);
+      border-radius:22px;
+      background:rgba(255,255,255,.018);
+      overflow:hidden;
+    }
+
+    .carousel-viewport{
+      width:100%;
+      overflow:hidden;
+      border-radius:16px;
+      background:#050813;
+    }
+
+    .carousel-track{
+      display:flex;
+      width:100%;
+      transition:transform .45s cubic-bezier(.2,.75,.2,1);
+    }
+
+    .carousel-slide{
+      flex:0 0 100%;
+      width:100%;
+      margin:0;
+      padding:0;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      overflow:hidden;
+      aspect-ratio:16 / 9;
+      background:#050813;
+    }
+
+    .carousel-slide img{
+      display:block;
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      object-position:center;
+      margin:0;
+      padding:0;
+    }
+
+    .carousel-nav{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      margin-top:14px;
+    }
+
+    .carousel-dots{
+      display:flex;
+      flex:1;
+      flex-wrap:wrap;
+      justify-content:center;
+      gap:8px;
+    }
+
+    .carousel-dot{
+      width:9px;
+      height:9px;
+      padding:0;
+      border:none;
+      border-radius:50%;
+      background:#465068;
+      cursor:pointer;
+    }
+
+    .carousel-dot.active{
+      background:#8b5cf6;
+      box-shadow:0 0 0 4px rgba(139,92,246,.12);
+    }
+
+    .carousel-btn{
+      width:44px;
+      height:44px;
+      border-radius:12px;
+      border:1px solid rgba(255,255,255,.12);
+      background:rgba(255,255,255,.04);
+      color:#fff;
+      font-size:1.25rem;
+      cursor:pointer;
+    }
+
+    .carousel-btn:hover{
+      background:rgba(139,92,246,.14);
+      border-color:rgba(139,92,246,.38);
+    }
+
+    .carousel-caption{
+      margin:12px 0 0;
+      text-align:center;
+      color:#8f9ab0;
+      font-size:.9rem;
+    }
+
+    @media(max-width:760px){
+
+      .detail-grid{
+        grid-template-columns:1fr;
+      }
+
+      .toolbox-content{
+        margin-top:30px;
+      }
+
+      .toolbox-content>section{
+        margin-bottom:38px;
+      }
+
+      .carousel-shell{
+        width:calc(100vw - 24px);
+        padding:10px;
+      }
+
+    }
+
+  </style>
+</head>
+
+
+<body>
+
+<div class="site-shell">
+
+<header class="topbar">
+
+  <a class="brand" href="../index.html">
+    FRANK G.<span class="brand-dot">•</span>
+  </a>
+
+  <nav class="nav">
+    <a class="active" href="../index.html#projects">Projects</a>
+    <a href="../index.html#about">About</a>
+    <a href="../index.html#timeline">Timeline</a>
+    <a href="../index.html#contact">Contact</a>
+  </nav>
+
+</header>
+
+
+<main>
+
+<section class="project-hero">
+
+  <a class="project-back" href="../index.html#projects">
+    ← Back to projects
+  </a>
+
+  <div class="project-kicker">
+    TOOLS · AUDIO · IFEN
+  </div>
+
+  <h1>
+    Frank's Toolbox
+  </h1>
+
+  <p class="project-lead">
+    A practical browser-based audio support toolbox created to help
+    colleagues set up, troubleshoot and optimise the Bose PA system
+    and Soundcraft Ui24R mixer during everyday events.
+  </p>
+
+</section>
+
+
+<div class="project-cover">
+
+  <img
+    src="../assets/images/projects/franks-toolbox.svg"
+    alt="Frank's Toolbox">
+
+</div>
+
+
+<article class="project-content toolbox-content">
+
+
+<section>
+
+  <h2>
+    Overview
+  </h2>
+
+  <p>
+    Frank's Toolbox was created as a practical support application
+    for colleagues working with the audio equipment at IFEN.
+  </p>
+
+  <p>
+    The objective was to provide quick help directly on site when
+    setting up and adjusting the Bose sound system and the Soundcraft
+    Ui24R digital mixer.
+  </p>
+
+  <p>
+    Instead of relying only on experience, printed documentation or
+    lengthy internet searches, the toolbox brings together several
+    useful audio and troubleshooting functions in one interface.
+  </p>
+
+</section>
+
+
+<section>
+
+  <h2>
+    Project details
+  </h2>
+
+  <p>
+    The project was developed to make everyday event preparation
+    easier for colleagues who needed to operate the audio system but
+    did not necessarily work with professional sound equipment every day.
+  </p>
+
+  <p>
+    One part of the toolbox focuses on system setup and gain staging.
+    It provides practical guidance for connecting and adjusting the Bose
+    loudspeaker system and the Soundcraft Ui24R mixer so that the basic
+    signal chain can be configured correctly and consistently.
+  </p>
+
+  <p>
+    A second important feature is the integrated documentation search.
+    Instead of manually searching through large manuals while working
+    on site, the toolbox makes it possible to quickly find relevant
+    operating instructions and technical information for the equipment.
+  </p>
+
+  <p>
+    The application also includes a room-analysis function. Using a
+    measurement microphone, the tool analyses the frequency response
+    of the room and identifies areas where certain frequencies are
+    excessively dominant.
+  </p>
+
+  <p>
+    This gives the operator a practical indication of where equalisation
+    may be required and helps improve speech intelligibility and overall
+    sound quality.
+  </p>
+
+
+  <div class="detail-grid">
+
+
+    <div class="detail-card">
+
+      <h3>
+        PA setup support
+      </h3>
+
+      <p>
+        Practical guidance helps users configure and connect the Bose
+        loudspeaker system correctly before an event.
+      </p>
+
+    </div>
+
+
+    <div class="detail-card">
+
+      <h3>
+        Gain staging
+      </h3>
+
+      <p>
+        The toolbox supports the basic process of setting appropriate
+        input and output levels to achieve a clean and stable audio signal.
+      </p>
+
+    </div>
+
+
+    <div class="detail-card">
+
+      <h3>
+        Soundcraft Ui24R support
+      </h3>
+
+      <p>
+        The application provides quick access to information relevant
+        to operating and configuring the digital mixing console.
+      </p>
+
+    </div>
+
+
+    <div class="detail-card">
+
+      <h3>
+        Manual research
+      </h3>
+
+      <p>
+        Integrated documentation search makes it possible to quickly
+        locate instructions and technical information while working
+        on site.
+      </p>
+
+    </div>
+
+
+    <div class="detail-card">
+
+      <h3>
+        Room analysis
+      </h3>
+
+      <p>
+        The analyser measures the acoustic response of the room and
+        visualises the frequency spectrum.
+      </p>
+
+    </div>
+
+
+    <div class="detail-card">
+
+      <h3>
+        Frequency guidance
+      </h3>
+
+      <p>
+        The tool identifies frequencies that are unusually dominant
+        and provides a clear indication of areas that may require EQ adjustment.
+      </p>
+
+    </div>
+
+
+  </div>
+
+</section>
+
+
+<section>
+
+  <h2>
+    Room Analyzer
+  </h2>
+
+  <p>
+    One of the most useful features of Frank's Toolbox is the
+    integrated room-analysis system.
+  </p>
+
+  <p>
+    Every room affects sound differently. Reflections, room dimensions,
+    walls and furnishings can cause certain frequency ranges to become
+    significantly louder than others.
+  </p>
+
+  <p>
+    The analyser measures the incoming audio spectrum and presents the
+    frequency distribution visually. The application can then highlight
+    frequencies that appear excessively dominant.
+  </p>
+
+  <p>
+    This gives the operator an understandable starting point for
+    adjusting the equaliser on the Soundcraft mixer rather than trying
+    to correct the room entirely by ear.
+  </p>
+
+</section>
+
+
+<section>
+
+  <h2>
+    Technology
+  </h2>
+
+  <p>
+    Frank's Toolbox is built as a browser-based support application
+    combining audio analysis, technical reference information and
+    practical setup guidance.
+  </p>
+
+  <p>
+    Web technologies are used for the interface, while the audio
+    analysis section processes microphone input and visualises the
+    measured frequency spectrum in real time.
+  </p>
+
+  <p>
+    The documentation component provides fast access to relevant
+    operating instructions for the Bose sound system and Soundcraft
+    Ui24R, reducing the time required to solve configuration problems
+    during live event preparation.
+  </p>
+
+  <p>
+    The project was designed around one goal: provide useful information
+    at the moment it is needed, directly at the event location.
+  </p>
+
+
+  <div class="tech-list">
+
+    <span class="tech-chip">HTML</span>
+    <span class="tech-chip">CSS</span>
+    <span class="tech-chip">JavaScript</span>
+    <span class="tech-chip">Web Audio</span>
+    <span class="tech-chip">FFT Analysis</span>
+    <span class="tech-chip">Room Analyzer</span>
+    <span class="tech-chip">Frequency Spectrum</span>
+    <span class="tech-chip">Measurement Microphone</span>
+    <span class="tech-chip">Bose PA</span>
+    <span class="tech-chip">Soundcraft Ui24R</span>
+    <span class="tech-chip">Audio Troubleshooting</span>
+    <span class="tech-chip">Responsive Web UI</span>
+
+  </div>
+
+</section>
+
+
+<section>
+
+  <h2>
+    Media & demo
+  </h2>
+
+  <p>
+    The screenshots below can show the different parts of Frank's
+    Toolbox: the main support interface, PA setup guidance, Soundcraft
+    Ui24R information, documentation search and the integrated room analyser.
+  </p>
+
+  <p>
+    Additional screenshots can demonstrate the frequency spectrum
+    measurement and show how dominant room frequencies are identified
+    during a real setup.
+  </p>
+
+
+  <div class="carousel-shell" data-carousel>
+
+    <div class="carousel-viewport">
+
+      <div class="carousel-track">
+
+
+        <figure class="carousel-slide">
+          <img
+            src="../assets/images/projects/toolbox/toolbox-01.jpg"
+            alt="Frank's Toolbox main interface">
+        </figure>
+
+
+        <figure class="carousel-slide">
+          <img
+            src="../assets/images/projects/toolbox/toolbox-02.jpg"
+            alt="Frank's Toolbox Bose PA setup">
+        </figure>
+
+
+        <figure class="carousel-slide">
+          <img
+            src="../assets/images/projects/toolbox/toolbox-03.jpg"
+            alt="Frank's Toolbox Soundcraft Ui24R support">
+        </figure>
+
+
+        <figure class="carousel-slide">
+          <img
+            src="../assets/images/projects/toolbox/toolbox-04.jpg"
+            alt="Frank's Toolbox manual search">
+        </figure>
+
+
+        <figure class="carousel-slide">
+          <img
+            src="../assets/images/projects/toolbox/toolbox-05.jpg"
+            alt="Frank's Toolbox room analyser">
+        </figure>
+
+
+        <figure class="carousel-slide">
+          <img
+            src="../assets/images/projects/toolbox/toolbox-06.jpg"
+            alt="Frank's Toolbox frequency analysis">
+        </figure>
+
+
+      </div>
+
+    </div>
+
+
+    <div class="carousel-nav">
+
+      <button
+        class="carousel-btn prev"
+        type="button"
+        aria-label="Previous screenshot">
+        ‹
+      </button>
+
+      <div
+        class="carousel-dots"
+        aria-label="Screenshot navigation">
+      </div>
+
+      <button
+        class="carousel-btn next"
+        type="button"
+        aria-label="Next screenshot">
+        ›
+      </button>
+
+    </div>
+
+
+    <p class="carousel-caption">
+      Frank's Toolbox — audio support & room analysis
+    </p>
+
+  </div>
+
+</section>
+
+
+</article>
+
+</main>
+
+
+<footer class="footer">
+
+  <span>
+    © Frank G. — My Projects
+  </span>
+
+  <span>
+    <a href="../index.html">
+      Back home
+    </a>
+  </span>
+
+</footer>
+
+
+</div>
+
+
+<script>
+
+(() => {
+
+  const carousel =
+    document.querySelector('[data-carousel]');
+
+  if(!carousel) return;
+
+  const track =
+    carousel.querySelector('.carousel-track');
+
+  const slides =
+    [...carousel.querySelectorAll('.carousel-slide')];
+
+  const dotsWrap =
+    carousel.querySelector('.carousel-dots');
+
+  const prev =
+    carousel.querySelector('.prev');
+
+  const next =
+    carousel.querySelector('.next');
+
+  let index = 0;
+
+
+  const dots =
+    slides.map((_,i)=>{
+
+      const dot =
+        document.createElement('button');
+
+      dot.className =
+        'carousel-dot';
+
+      dot.type =
+        'button';
+
+      dot.setAttribute(
+        'aria-label',
+        `Show screenshot ${i+1}`
+      );
+
+      dot.addEventListener(
+        'click',
+        ()=>goTo(i)
+      );
+
+      dotsWrap.appendChild(dot);
+
+      return dot;
+
+    });
+
+
+  function goTo(i){
+
+    index =
+      (i + slides.length)
+      % slides.length;
+
+    track.style.transform =
+      `translateX(-${index*100}%)`;
+
+    dots.forEach(
+      (dot,dotIndex)=>{
+
+        dot.classList.toggle(
+          'active',
+          dotIndex===index
+        );
+
+      }
+    );
+
+  }
+
+
+  prev.addEventListener(
+    'click',
+    ()=>goTo(index-1)
+  );
+
+
+  next.addEventListener(
+    'click',
+    ()=>goTo(index+1)
+  );
+
+
+  let startX=null;
+
+
+  carousel.addEventListener(
+    'touchstart',
+    e=>{
+
+      startX =
+        e.touches[0].clientX;
+
+    },
+    {passive:true}
+  );
+
+
+  carousel.addEventListener(
+    'touchend',
+    e=>{
+
+      if(startX===null)
+        return;
+
+      const delta =
+        e.changedTouches[0].clientX
+        - startX;
+
+      if(Math.abs(delta)>45){
+
+        goTo(
+          index +
+          (delta<0 ? 1 : -1)
+        );
+
+      }
+
+      startX=null;
+
+    },
+    {passive:true}
+  );
+
+
+  goTo(0);
+
+})();
+
+</script>
+
+</body>
+</html>
