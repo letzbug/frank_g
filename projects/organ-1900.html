@@ -1,1 +1,859 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#050813"><title>Orgel von 1900 — Frank G.</title><link rel="stylesheet" href="../assets/css/style.css"><link rel="stylesheet" href="../assets/css/project.css"></head><body><div class="site-shell"><header class="topbar"><a class="brand" href="../index.html">FRANK G.<span class="brand-dot">•</span></a><nav class="nav"><a class="active" href="../index.html#projects">Projects</a><a href="../index.html#about">About</a><a href="../index.html#timeline">Timeline</a><a href="../index.html#contact">Contact</a></nav></header><main><section class="project-hero"><a class="project-back" href="../index.html#projects">← Back to projects</a><div class="project-kicker">HARDWARE · RESTORATION · ELECTRONICS</div><h1>Orgel von 1900</h1><p class="project-lead">A technology and restoration project around a historic organ dating from around 1900.</p></section><div class="project-cover"><img src="../assets/images/projects/organ-1900.jpg" alt="Orgel von 1900"></div><article class="project-content"><p class="edit-note">This page is ready for your own project content. Replace the image and edit this HTML whenever you want.</p><section><h2>Overview</h2><p>A technology and restoration project around a historic organ dating from around 1900.</p></section><section><h2>Project details</h2><p>Add screenshots, the story behind the project, your contribution, technologies, results and future ideas here.</p></section><section><h2>Media & demo</h2><p>This section can contain additional images, video, GitHub links or an embedded live project.</p></section></article></main><footer class="footer"><span>© Frank G. — My Projects</span><span><a href="../index.html">Back home</a></span></footer></div></body></html>
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#050813">
+
+  <title>Orchestrion 1900 — Frank G.</title>
+
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/project.css">
+
+  <style>
+
+    .organ-content{
+      display:block;
+      max-width:980px;
+      margin:44px auto 0;
+    }
+
+    .organ-content>section{
+      margin:0 0 48px;
+    }
+
+    .organ-content h2{
+      margin-bottom:14px;
+    }
+
+    .organ-content p{
+      line-height:1.75;
+      color:#b8c0d3;
+    }
+
+    .detail-grid{
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:18px;
+      margin-top:24px;
+    }
+
+    .detail-card{
+      padding:22px;
+      border:1px solid rgba(255,255,255,.09);
+      border-radius:18px;
+      background:
+        linear-gradient(
+          180deg,
+          rgba(255,255,255,.035),
+          rgba(255,255,255,.018)
+        );
+    }
+
+    .detail-card h3{
+      margin:0 0 8px;
+      font-size:1rem;
+      color:#fff;
+    }
+
+    .detail-card p{
+      margin:0;
+      font-size:.96rem;
+    }
+
+    .tech-list{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:20px;
+    }
+
+    .tech-chip{
+      padding:9px 12px;
+      border:1px solid rgba(139,92,246,.28);
+      border-radius:999px;
+      background:rgba(109,74,255,.08);
+      color:#c9b8ff;
+      font-size:.86rem;
+      font-weight:700;
+      letter-spacing:.04em;
+    }
+
+    .museum-link{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      margin-top:22px;
+      min-height:46px;
+      padding:0 18px;
+      border-radius:12px;
+      border:1px solid rgba(139,92,246,.5);
+      background:linear-gradient(135deg,#6d4aff,#8b5cf6);
+      color:#fff;
+      font-weight:700;
+      text-decoration:none;
+      box-shadow:0 10px 30px rgba(93,63,211,.18);
+      transition:transform .18s ease,box-shadow .18s ease;
+    }
+
+    .museum-link:hover{
+      transform:translateY(-2px);
+      box-shadow:0 14px 34px rgba(93,63,211,.27);
+    }
+
+
+    /* =====================================
+       MEDIA CAROUSEL
+       Images: 1600 x 900 px / 16:9
+       ===================================== */
+
+    .carousel-shell{
+      position:relative;
+      width:min(1520px,calc(100vw - 56px));
+      margin:26px 0 0 50%;
+      transform:translateX(-50%);
+      padding:16px;
+      border:1px solid rgba(255,255,255,.09);
+      border-radius:22px;
+      background:rgba(255,255,255,.018);
+      overflow:hidden;
+    }
+
+    .carousel-viewport{
+      width:100%;
+      overflow:hidden;
+      border-radius:16px;
+      background:#050813;
+    }
+
+    .carousel-track{
+      display:flex;
+      width:100%;
+      transition:transform .45s cubic-bezier(.2,.75,.2,1);
+    }
+
+    .carousel-slide{
+      flex:0 0 100%;
+      width:100%;
+      margin:0;
+      padding:0;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      overflow:hidden;
+      aspect-ratio:16 / 9;
+      background:#050813;
+    }
+
+    .carousel-slide img{
+      display:block;
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      object-position:center;
+      margin:0;
+      padding:0;
+    }
+
+    .carousel-nav{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      margin-top:14px;
+    }
+
+    .carousel-dots{
+      display:flex;
+      flex:1;
+      flex-wrap:wrap;
+      justify-content:center;
+      gap:8px;
+    }
+
+    .carousel-dot{
+      width:9px;
+      height:9px;
+      padding:0;
+      border:none;
+      border-radius:50%;
+      background:#465068;
+      cursor:pointer;
+    }
+
+    .carousel-dot.active{
+      background:#8b5cf6;
+      box-shadow:0 0 0 4px rgba(139,92,246,.12);
+    }
+
+    .carousel-btn{
+      width:44px;
+      height:44px;
+      border-radius:12px;
+      border:1px solid rgba(255,255,255,.12);
+      background:rgba(255,255,255,.04);
+      color:#fff;
+      font-size:1.25rem;
+      cursor:pointer;
+    }
+
+    .carousel-btn:hover{
+      background:rgba(139,92,246,.14);
+      border-color:rgba(139,92,246,.38);
+    }
+
+    .carousel-caption{
+      margin:12px 0 0;
+      text-align:center;
+      color:#8f9ab0;
+      font-size:.9rem;
+    }
+
+    @media(max-width:760px){
+
+      .detail-grid{
+        grid-template-columns:1fr;
+      }
+
+      .organ-content{
+        margin-top:30px;
+      }
+
+      .organ-content>section{
+        margin-bottom:38px;
+      }
+
+      .carousel-shell{
+        width:calc(100vw - 24px);
+        padding:10px;
+      }
+
+      .museum-link{
+        width:100%;
+      }
+
+    }
+
+  </style>
+</head>
+
+
+<body>
+
+<div class="site-shell">
+
+<header class="topbar">
+
+  <a class="brand" href="../index.html">
+    FRANK G.<span class="brand-dot">•</span>
+  </a>
+
+  <nav class="nav">
+    <a class="active" href="../index.html#projects">Projects</a>
+    <a href="../index.html#about">About</a>
+    <a href="../index.html#timeline">Timeline</a>
+    <a href="../index.html#contact">Contact</a>
+  </nav>
+
+</header>
+
+
+<main>
+
+<section class="project-hero">
+
+  <a class="project-back" href="../index.html#projects">
+    ← Back to projects
+  </a>
+
+  <div class="project-kicker">
+    HARDWARE · RESTORATION · MIDI · ELECTRONICS
+  </div>
+
+  <h1>
+    Orchestrion 1900
+  </h1>
+
+  <p class="project-lead">
+    A complete electronic reconstruction of a historic pneumatic
+    orchestrion, combining its original mechanical system with
+    Arduino, Raspberry Pi, MIDI control and modern multi-channel audio.
+  </p>
+
+</section>
+
+
+<div class="project-cover">
+
+  <img
+    src="../assets/images/projects/organ-1900.jpg"
+    alt="Historic Orchestrion">
+
+</div>
+
+
+<article class="project-content organ-content">
+
+
+<section>
+
+  <h2>
+    Overview
+  </h2>
+
+  <p>
+    This project involved the restoration and technical reconstruction
+    of a historic orchestrion dating from around 1900.
+  </p>
+
+  <p>
+    The original instrument is based on mechanical and pneumatic
+    technology. Air pressure, pumps and a perforated-card system
+    control the individual notes and instruments.
+  </p>
+
+  <p>
+    Over the course of its life, however, the orchestrion had already
+    been modified. An electronic organ had previously been installed
+    and adapted so that the individual electronic keys could still be
+    triggered through the instrument's pneumatic mechanism.
+  </p>
+
+</section>
+
+
+<section>
+
+  <h2>
+    Project details
+  </h2>
+
+  <p>
+    The previously installed electronic organ had reached a point
+    where it could no longer be repaired reliably. Because the
+    mechanical and pneumatic parts of the orchestrion were still
+    functional, the objective was not to replace the historic
+    mechanism but to develop a completely new electronic system
+    around it.
+  </p>
+
+  <p>
+    The new architecture combines a Raspberry Pi, an Arduino and
+    dedicated MIDI electronics. Signals coming from the existing
+    mechanical and pneumatic system are translated into modern
+    electronic control commands.
+  </p>
+
+  <p>
+    The Arduino handles the interface between the many physical
+    control lines and the new digital electronics, while the
+    Raspberry Pi manages the higher-level playback and system logic.
+    A MIDI module is used to generate and control the musical
+    instrument sounds.
+  </p>
+
+  <p>
+    One of the main challenges was integrating the modern electronics
+    into the existing historic mechanism without changing the way the
+    orchestrion itself operates. A large number of individual cables
+    and connections were required to interface the pneumatic actions
+    with the electronic control system.
+  </p>
+
+  <p>
+    The completed system has since been operating reliably as part
+    of the museum installation.
+  </p>
+
+
+  <div class="detail-grid">
+
+
+    <div class="detail-card">
+
+      <h3>
+        Pneumatic mechanism
+      </h3>
+
+      <p>
+        The original system uses air pressure and mechanical valves
+        to trigger individual notes and instrument functions.
+      </p>
+
+    </div>
+
+
+    <div class="detail-card">
+
+      <h3>
+        Perforated-card control
+      </h3>
+
+      <p>
+        The historic perforated-card mechanism remains part of the
+        instrument and provides the basis for the musical sequence.
+      </p>
+
+    </div>
+
+
+    <div class="detail-card">
+
+      <h3>
+        Arduino interface
+      </h3>
+
+      <p>
+        An Arduino translates the many physical control signals from
+        the historic mechanism into commands that can be processed
+        by the modern electronics.
+      </p>
+
+    </div>
+
+
+    <div class="detail-card">
+
+      <h3>
+        Raspberry Pi control
+      </h3>
+
+      <p>
+        A Raspberry Pi coordinates the system and provides the
+        higher-level control logic for the new electronic architecture.
+      </p>
+
+    </div>
+
+
+    <div class="detail-card">
+
+      <h3>
+        MIDI sound generation
+      </h3>
+
+      <p>
+        A dedicated MIDI system replaces the failed electronic organ
+        and generates the musical sounds controlled by the original
+        mechanism.
+      </p>
+
+    </div>
+
+
+    <div class="detail-card">
+
+      <h3>
+        Multi-channel audio
+      </h3>
+
+      <p>
+        A four-channel amplifier separates organ, bass and additional
+        instruments so that the different musical sections can be
+        controlled independently.
+      </p>
+
+    </div>
+
+
+    <div class="detail-card">
+
+      <h3>
+        Status display
+      </h3>
+
+      <p>
+        A small integrated display shows the instruments and notes
+        currently being played by the system.
+      </p>
+
+    </div>
+
+
+    <div class="detail-card">
+
+      <h3>
+        Historic integration
+      </h3>
+
+      <p>
+        The new electronics were integrated into the existing
+        mechanical structure rather than replacing the historic
+        operating principle.
+      </p>
+
+    </div>
+
+
+  </div>
+
+</section>
+
+
+<section>
+
+  <h2>
+    From air pressure to MIDI
+  </h2>
+
+  <p>
+    One of the most interesting aspects of the project is the
+    connection between technologies separated by more than a century.
+  </p>
+
+  <p>
+    At one end, the orchestrion still operates through pumps, air
+    pressure, valves and mechanical movement. At the other end,
+    modern electronics generate and amplify the musical sounds.
+  </p>
+
+  <p>
+    The new interface forms the bridge between both worlds. A
+    pneumatic action can ultimately result in a digital MIDI command,
+    which then produces the corresponding organ, bass or additional
+    instrument sound.
+  </p>
+
+  <p>
+    This made it possible to preserve the characteristic mechanical
+    operation of the instrument while replacing only the electronic
+    section that could no longer be restored.
+  </p>
+
+</section>
+
+
+<section>
+
+  <h2>
+    Technology
+  </h2>
+
+  <p>
+    The reconstructed system combines embedded electronics, MIDI,
+    audio amplification and the original pneumatic mechanism.
+  </p>
+
+  <p>
+    Arduino hardware is used for low-level interfacing with the
+    numerous mechanical and pneumatic control signals. The Raspberry
+    Pi provides the central system logic and coordinates communication
+    with the MIDI hardware.
+  </p>
+
+  <p>
+    The MIDI module generates the different musical voices, while a
+    four-channel amplifier provides separate audio paths for the organ,
+    bass and additional instruments.
+  </p>
+
+  <p>
+    A small display provides real-time visual feedback by showing the
+    currently active instruments and notes, making the otherwise
+    invisible interaction between the historic mechanism and the
+    modern electronics visible.
+  </p>
+
+
+  <div class="tech-list">
+
+    <span class="tech-chip">Raspberry Pi</span>
+    <span class="tech-chip">Arduino</span>
+    <span class="tech-chip">MIDI</span>
+    <span class="tech-chip">Pneumatics</span>
+    <span class="tech-chip">Air Pressure</span>
+    <span class="tech-chip">Perforated Cards</span>
+    <span class="tech-chip">4-Channel Amplifier</span>
+    <span class="tech-chip">Organ Audio</span>
+    <span class="tech-chip">Bass Audio</span>
+    <span class="tech-chip">Embedded Display</span>
+    <span class="tech-chip">Custom Wiring</span>
+    <span class="tech-chip">Electronics Restoration</span>
+
+  </div>
+
+
+  <a
+    class="museum-link"
+    href="https://www.zylinderhaus.com/"
+    target="_blank"
+    rel="noopener noreferrer">
+    Visit Zylinderhaus Museum ↗
+  </a>
+
+</section>
+
+
+<section>
+
+  <h2>
+    Media & demo
+  </h2>
+
+  <p>
+    The images below can document the complete reconstruction:
+    the historic orchestrion and pneumatic mechanism, the previous
+    electronic installation, the new Arduino and Raspberry Pi
+    electronics, MIDI hardware, amplifier system and the large
+    amount of wiring required to integrate everything into the
+    existing instrument.
+  </p>
+
+  <p>
+    Additional images can show the real-time display and the finished
+    orchestrion operating again as part of the museum exhibition.
+  </p>
+
+
+  <div class="carousel-shell" data-carousel>
+
+    <div class="carousel-viewport">
+
+      <div class="carousel-track">
+
+
+        <figure class="carousel-slide">
+          <img
+            src="../assets/images/projects/organ/organ-01.jpg"
+            alt="Historic orchestrion">
+        </figure>
+
+
+        <figure class="carousel-slide">
+          <img
+            src="../assets/images/projects/organ/organ-02.jpg"
+            alt="Orchestrion pneumatic mechanism">
+        </figure>
+
+
+        <figure class="carousel-slide">
+          <img
+            src="../assets/images/projects/organ/organ-03.jpg"
+            alt="Orchestrion electronics reconstruction">
+        </figure>
+
+
+        <figure class="carousel-slide">
+          <img
+            src="../assets/images/projects/organ/organ-04.jpg"
+            alt="Arduino Raspberry Pi and MIDI system">
+        </figure>
+
+
+        <figure class="carousel-slide">
+          <img
+            src="../assets/images/projects/organ/organ-05.jpg"
+            alt="Orchestrion internal wiring">
+        </figure>
+
+
+        <figure class="carousel-slide">
+          <img
+            src="../assets/images/projects/organ/organ-06.jpg"
+            alt="Restored orchestrion operating in museum">
+        </figure>
+
+
+      </div>
+
+    </div>
+
+
+    <div class="carousel-nav">
+
+      <button
+        class="carousel-btn prev"
+        type="button"
+        aria-label="Previous screenshot">
+        ‹
+      </button>
+
+      <div
+        class="carousel-dots"
+        aria-label="Screenshot navigation">
+      </div>
+
+      <button
+        class="carousel-btn next"
+        type="button"
+        aria-label="Next screenshot">
+        ›
+      </button>
+
+    </div>
+
+
+    <p class="carousel-caption">
+      Orchestrion 1900 — restoration & electronic reconstruction
+    </p>
+
+  </div>
+
+</section>
+
+
+</article>
+
+</main>
+
+
+<footer class="footer">
+
+  <span>
+    © Frank G. — My Projects
+  </span>
+
+  <span>
+    <a href="../index.html">
+      Back home
+    </a>
+  </span>
+
+</footer>
+
+
+</div>
+
+
+<script>
+
+(() => {
+
+  const carousel =
+    document.querySelector('[data-carousel]');
+
+  if(!carousel) return;
+
+  const track =
+    carousel.querySelector('.carousel-track');
+
+  const slides =
+    [...carousel.querySelectorAll('.carousel-slide')];
+
+  const dotsWrap =
+    carousel.querySelector('.carousel-dots');
+
+  const prev =
+    carousel.querySelector('.prev');
+
+  const next =
+    carousel.querySelector('.next');
+
+  let index = 0;
+
+
+  const dots =
+    slides.map((_,i)=>{
+
+      const dot =
+        document.createElement('button');
+
+      dot.className =
+        'carousel-dot';
+
+      dot.type =
+        'button';
+
+      dot.setAttribute(
+        'aria-label',
+        `Show screenshot ${i+1}`
+      );
+
+      dot.addEventListener(
+        'click',
+        ()=>goTo(i)
+      );
+
+      dotsWrap.appendChild(dot);
+
+      return dot;
+
+    });
+
+
+  function goTo(i){
+
+    index =
+      (i + slides.length)
+      % slides.length;
+
+    track.style.transform =
+      `translateX(-${index*100}%)`;
+
+    dots.forEach(
+      (dot,dotIndex)=>{
+
+        dot.classList.toggle(
+          'active',
+          dotIndex===index
+        );
+
+      }
+    );
+
+  }
+
+
+  prev.addEventListener(
+    'click',
+    ()=>goTo(index-1)
+  );
+
+
+  next.addEventListener(
+    'click',
+    ()=>goTo(index+1)
+  );
+
+
+  let startX=null;
+
+
+  carousel.addEventListener(
+    'touchstart',
+    e=>{
+
+      startX =
+        e.touches[0].clientX;
+
+    },
+    {passive:true}
+  );
+
+
+  carousel.addEventListener(
+    'touchend',
+    e=>{
+
+      if(startX===null)
+        return;
+
+      const delta =
+        e.changedTouches[0].clientX
+        - startX;
+
+      if(Math.abs(delta)>45){
+
+        goTo(
+          index +
+          (delta<0 ? 1 : -1)
+        );
+
+      }
+
+      startX=null;
+
+    },
+    {passive:true}
+  );
+
+
+  goTo(0);
+
+})();
+
+</script>
+
+</body>
+</html>
