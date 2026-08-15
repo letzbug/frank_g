@@ -1,1 +1,741 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#050813"><title>Ansage — Frank G.</title><link rel="stylesheet" href="../assets/css/style.css"><link rel="stylesheet" href="../assets/css/project.css"></head><body><div class="site-shell"><header class="topbar"><a class="brand" href="../index.html">FRANK G.<span class="brand-dot">•</span></a><nav class="nav"><a class="active" href="../index.html#projects">Projects</a><a href="../index.html#about">About</a><a href="../index.html#timeline">Timeline</a><a href="../index.html#contact">Contact</a></nav></header><main><section class="project-hero"><a class="project-back" href="../index.html#projects">← Back to projects</a><div class="project-kicker">HARDWARE · AUDIO · AUTOMATION</div><h1>Ansage</h1><p class="project-lead">A dedicated announcement and audio hardware project.</p></section><div class="project-cover"><img src="../assets/images/projects/ansage.jpg" alt="Ansage"></div><article class="project-content"><p class="edit-note">This page is ready for your own project content. Replace the image and edit this HTML whenever you want.</p><section><h2>Overview</h2><p>A dedicated announcement and audio hardware project.</p></section><section><h2>Project details</h2><p>Add screenshots, the story behind the project, your contribution, technologies, results and future ideas here.</p></section><section><h2>Media & demo</h2><p>This section can contain additional images, video, GitHub links or an embedded live project.</p></section></article></main><footer class="footer"><span>© Frank G. — My Projects</span><span><a href="../index.html">Back home</a></span></footer></div></body></html>
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#050813">
+
+  <title>Ansage — Frank G.</title>
+
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/project.css">
+
+  <style>
+
+    .ansage-content{
+      display:block;
+      max-width:980px;
+      margin:44px auto 0;
+    }
+
+    .ansage-content>section{
+      margin:0 0 48px;
+    }
+
+    .ansage-content h2{
+      margin-bottom:14px;
+    }
+
+    .ansage-content p{
+      line-height:1.75;
+      color:#b8c0d3;
+    }
+
+    .detail-grid{
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:18px;
+      margin-top:24px;
+    }
+
+    .detail-card{
+      padding:22px;
+      border:1px solid rgba(255,255,255,.09);
+      border-radius:18px;
+      background:
+        linear-gradient(
+          180deg,
+          rgba(255,255,255,.035),
+          rgba(255,255,255,.018)
+        );
+    }
+
+    .detail-card h3{
+      margin:0 0 8px;
+      font-size:1rem;
+      color:#fff;
+    }
+
+    .detail-card p{
+      margin:0;
+      font-size:.96rem;
+    }
+
+    .tech-list{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:20px;
+    }
+
+    .tech-chip{
+      padding:9px 12px;
+      border:1px solid rgba(139,92,246,.28);
+      border-radius:999px;
+      background:rgba(109,74,255,.08);
+      color:#c9b8ff;
+      font-size:.86rem;
+      font-weight:700;
+      letter-spacing:.04em;
+    }
+
+    /* MEDIA CAROUSEL */
+
+    .carousel-shell{
+      position:relative;
+      width:min(1520px,calc(100vw - 56px));
+      margin:26px 0 0 50%;
+      transform:translateX(-50%);
+      padding:16px;
+      border:1px solid rgba(255,255,255,.09);
+      border-radius:22px;
+      background:rgba(255,255,255,.018);
+      overflow:hidden;
+    }
+
+    .carousel-viewport{
+      width:100%;
+      overflow:hidden;
+      border-radius:16px;
+      background:#050813;
+    }
+
+    .carousel-track{
+      display:flex;
+      width:100%;
+      transition:transform .45s cubic-bezier(.2,.75,.2,1);
+    }
+
+    .carousel-slide{
+      flex:0 0 100%;
+      width:100%;
+      margin:0;
+      padding:0;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      overflow:hidden;
+      aspect-ratio:16 / 9;
+      background:#050813;
+    }
+
+    .carousel-slide img{
+      display:block;
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      object-position:center;
+      margin:0;
+      padding:0;
+    }
+
+    .carousel-nav{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      margin-top:14px;
+    }
+
+    .carousel-dots{
+      display:flex;
+      flex:1;
+      flex-wrap:wrap;
+      justify-content:center;
+      gap:8px;
+    }
+
+    .carousel-dot{
+      width:9px;
+      height:9px;
+      padding:0;
+      border:none;
+      border-radius:50%;
+      background:#465068;
+      cursor:pointer;
+    }
+
+    .carousel-dot.active{
+      background:#8b5cf6;
+      box-shadow:0 0 0 4px rgba(139,92,246,.12);
+    }
+
+    .carousel-btn{
+      width:44px;
+      height:44px;
+      border-radius:12px;
+      border:1px solid rgba(255,255,255,.12);
+      background:rgba(255,255,255,.04);
+      color:#fff;
+      font-size:1.25rem;
+      cursor:pointer;
+    }
+
+    .carousel-btn:hover{
+      background:rgba(139,92,246,.14);
+      border-color:rgba(139,92,246,.38);
+    }
+
+    .carousel-caption{
+      margin:12px 0 0;
+      text-align:center;
+      color:#8f9ab0;
+      font-size:.9rem;
+    }
+
+    @media(max-width:760px){
+
+      .detail-grid{
+        grid-template-columns:1fr;
+      }
+
+      .ansage-content{
+        margin-top:30px;
+      }
+
+      .ansage-content>section{
+        margin-bottom:38px;
+      }
+
+      .carousel-shell{
+        width:calc(100vw - 24px);
+        padding:10px;
+      }
+
+    }
+
+  </style>
+</head>
+
+
+<body>
+
+<div class="site-shell">
+
+<header class="topbar">
+
+  <a class="brand" href="../index.html">
+    FRANK G.<span class="brand-dot">•</span>
+  </a>
+
+  <nav class="nav">
+    <a class="active" href="../index.html#projects">Projects</a>
+    <a href="../index.html#about">About</a>
+    <a href="../index.html#timeline">Timeline</a>
+    <a href="../index.html#contact">Contact</a>
+  </nav>
+
+</header>
+
+
+<main>
+
+<section class="project-hero">
+
+  <a class="project-back" href="../index.html#projects">
+    ← Back to projects
+  </a>
+
+  <div class="project-kicker">
+    HARDWARE · AUDIO · AUTOMATION
+  </div>
+
+  <h1>
+    Ansage
+  </h1>
+
+  <p class="project-lead">
+    A compact Raspberry Pi-based audio automation system that
+    automatically plays a prerecorded museum closing announcement
+    at the same time every evening.
+  </p>
+
+</section>
+
+
+<div class="project-cover">
+
+  <img
+    src="../assets/images/projects/ansage.jpg"
+    alt="Ansage">
+
+</div>
+
+
+<article class="project-content ansage-content">
+
+
+<section>
+
+  <h2>
+    Overview
+  </h2>
+
+  <p>
+    Ansage is a small dedicated hardware and automation project
+    created for a museum.
+  </p>
+
+  <p>
+    Its purpose is simple: every evening, shortly before closing
+    time, the system automatically plays a prerecorded announcement
+    informing visitors that the museum will soon close.
+  </p>
+
+  <p>
+    The device is connected directly to the museum's existing
+    public-address system, allowing the message to be heard through
+    the normal building loudspeakers without requiring staff to
+    trigger it manually.
+  </p>
+
+</section>
+
+
+<section>
+
+  <h2>
+    Project details
+  </h2>
+
+  <p>
+    The main objective was reliability and simplicity. The museum
+    needed the same announcement to be played at a fixed time every
+    evening without depending on a staff member remembering to start
+    the audio manually.
+  </p>
+
+  <p>
+    A Raspberry Pi Zero 2 W was selected as the core of the system
+    because it is compact, inexpensive and powerful enough for the
+    required scheduling and audio playback.
+  </p>
+
+  <p>
+    A 5-inch touchscreen provides a simple local interface for the
+    device, while a dedicated real-time clock module keeps accurate
+    time even if the Raspberry Pi temporarily loses its network
+    connection or is powered down.
+  </p>
+
+  <p>
+    At the configured time, the system automatically starts the
+    prerecorded closing message and sends the audio output to the
+    museum's existing loudspeaker installation.
+  </p>
+
+
+  <div class="detail-grid">
+
+
+    <div class="detail-card">
+
+      <h3>
+        Scheduled playback
+      </h3>
+
+      <p>
+        The announcement is automatically triggered at the same
+        configured time every evening.
+      </p>
+
+    </div>
+
+
+    <div class="detail-card">
+
+      <h3>
+        Prerecorded message
+      </h3>
+
+      <p>
+        A fixed high-quality audio recording ensures that visitors
+        receive the same clear closing information every day.
+      </p>
+
+    </div>
+
+
+    <div class="detail-card">
+
+      <h3>
+        Raspberry Pi Zero 2 W
+      </h3>
+
+      <p>
+        The complete automation runs on a compact Raspberry Pi Zero
+        2 W installed as a dedicated appliance.
+      </p>
+
+    </div>
+
+
+    <div class="detail-card">
+
+      <h3>
+        5-inch touchscreen
+      </h3>
+
+      <p>
+        A small touchscreen provides local access to the system
+        without requiring a keyboard, mouse or external computer.
+      </p>
+
+    </div>
+
+
+    <div class="detail-card">
+
+      <h3>
+        Real-time clock
+      </h3>
+
+      <p>
+        A dedicated time module maintains accurate scheduling even
+        when no network time source is available.
+      </p>
+
+    </div>
+
+
+    <div class="detail-card">
+
+      <h3>
+        Existing PA integration
+      </h3>
+
+      <p>
+        The audio output is connected to the museum's existing
+        loudspeaker system rather than requiring a separate set of
+        speakers.
+      </p>
+
+    </div>
+
+
+  </div>
+
+</section>
+
+
+<section>
+
+  <h2>
+    Technology
+  </h2>
+
+  <p>
+    The system is built around a Raspberry Pi Zero 2 W running as
+    a dedicated audio automation device.
+  </p>
+
+  <p>
+    The software handles the daily schedule and starts the selected
+    audio file automatically at the configured time. The real-time
+    clock module provides an independent time reference, while the
+    touchscreen provides local visual control and status information.
+  </p>
+
+  <p>
+    Audio from the Raspberry Pi is routed into the museum's existing
+    sound system, allowing the announcement to use the same
+    loudspeakers as the rest of the building audio infrastructure.
+  </p>
+
+  <p>
+    The result is a self-contained installation that can remain in
+    operation continuously and perform its task automatically every
+    evening.
+  </p>
+
+
+  <div class="tech-list">
+
+    <span class="tech-chip">Raspberry Pi Zero 2 W</span>
+    <span class="tech-chip">5" Touchscreen</span>
+    <span class="tech-chip">RTC Module</span>
+    <span class="tech-chip">Scheduled Playback</span>
+    <span class="tech-chip">Audio Automation</span>
+    <span class="tech-chip">Prerecorded Audio</span>
+    <span class="tech-chip">Linux</span>
+    <span class="tech-chip">Python</span>
+    <span class="tech-chip">PA System</span>
+    <span class="tech-chip">Embedded Hardware</span>
+
+  </div>
+
+</section>
+
+
+<section>
+
+  <h2>
+    Media & demo
+  </h2>
+
+  <p>
+    The images below can document the complete project: the Raspberry
+    Pi Zero 2 W, touchscreen and real-time clock hardware, the local
+    interface, the installed enclosure and the connection to the
+    museum's audio system.
+  </p>
+
+  <p>
+    Additional screenshots can show the scheduling interface and the
+    system during normal operation shortly before the automatic
+    closing announcement is played.
+  </p>
+
+
+  <div class="carousel-shell" data-carousel>
+
+    <div class="carousel-viewport">
+
+      <div class="carousel-track">
+
+
+        <figure class="carousel-slide">
+          <img
+            src="../assets/images/projects/ansage/ansage-01.jpg"
+            alt="Ansage Raspberry Pi hardware">
+        </figure>
+
+
+        <figure class="carousel-slide">
+          <img
+            src="../assets/images/projects/ansage/ansage-02.jpg"
+            alt="Ansage touchscreen interface">
+        </figure>
+
+
+        <figure class="carousel-slide">
+          <img
+            src="../assets/images/projects/ansage/ansage-03.jpg"
+            alt="Ansage real-time clock module">
+        </figure>
+
+
+        <figure class="carousel-slide">
+          <img
+            src="../assets/images/projects/ansage/ansage-04.jpg"
+            alt="Ansage system installation">
+        </figure>
+
+
+        <figure class="carousel-slide">
+          <img
+            src="../assets/images/projects/ansage/ansage-05.jpg"
+            alt="Ansage museum audio connection">
+        </figure>
+
+
+        <figure class="carousel-slide">
+          <img
+            src="../assets/images/projects/ansage/ansage-06.jpg"
+            alt="Ansage finished system">
+        </figure>
+
+
+      </div>
+
+    </div>
+
+
+    <div class="carousel-nav">
+
+      <button
+        class="carousel-btn prev"
+        type="button"
+        aria-label="Previous screenshot">
+        ‹
+      </button>
+
+      <div
+        class="carousel-dots"
+        aria-label="Screenshot navigation">
+      </div>
+
+      <button
+        class="carousel-btn next"
+        type="button"
+        aria-label="Next screenshot">
+        ›
+      </button>
+
+    </div>
+
+
+    <p class="carousel-caption">
+      Ansage — hardware & installation
+    </p>
+
+  </div>
+
+</section>
+
+
+</article>
+
+</main>
+
+
+<footer class="footer">
+
+  <span>
+    © Frank G. — My Projects
+  </span>
+
+  <span>
+    <a href="../index.html">
+      Back home
+    </a>
+  </span>
+
+</footer>
+
+
+</div>
+
+
+<script>
+
+(() => {
+
+  const carousel =
+    document.querySelector('[data-carousel]');
+
+  if(!carousel) return;
+
+  const track =
+    carousel.querySelector('.carousel-track');
+
+  const slides =
+    [...carousel.querySelectorAll('.carousel-slide')];
+
+  const dotsWrap =
+    carousel.querySelector('.carousel-dots');
+
+  const prev =
+    carousel.querySelector('.prev');
+
+  const next =
+    carousel.querySelector('.next');
+
+  let index = 0;
+
+
+  const dots =
+    slides.map((_,i)=>{
+
+      const dot =
+        document.createElement('button');
+
+      dot.className =
+        'carousel-dot';
+
+      dot.type =
+        'button';
+
+      dot.setAttribute(
+        'aria-label',
+        `Show screenshot ${i+1}`
+      );
+
+      dot.addEventListener(
+        'click',
+        ()=>goTo(i)
+      );
+
+      dotsWrap.appendChild(dot);
+
+      return dot;
+
+    });
+
+
+  function goTo(i){
+
+    index =
+      (i + slides.length)
+      % slides.length;
+
+    track.style.transform =
+      `translateX(-${index*100}%)`;
+
+    dots.forEach(
+      (dot,dotIndex)=>{
+
+        dot.classList.toggle(
+          'active',
+          dotIndex===index
+        );
+
+      }
+    );
+
+  }
+
+
+  prev.addEventListener(
+    'click',
+    ()=>goTo(index-1)
+  );
+
+
+  next.addEventListener(
+    'click',
+    ()=>goTo(index+1)
+  );
+
+
+  let startX=null;
+
+
+  carousel.addEventListener(
+    'touchstart',
+    e=>{
+
+      startX =
+        e.touches[0].clientX;
+
+    },
+    {passive:true}
+  );
+
+
+  carousel.addEventListener(
+    'touchend',
+    e=>{
+
+      if(startX===null)
+        return;
+
+      const delta =
+        e.changedTouches[0].clientX
+        - startX;
+
+      if(Math.abs(delta)>45){
+
+        goTo(
+          index +
+          (delta<0 ? 1 : -1)
+        );
+
+      }
+
+      startX=null;
+
+    },
+    {passive:true}
+  );
+
+
+  goTo(0);
+
+})();
+
+</script>
+
+</body>
+</html>
